@@ -1,0 +1,1199 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 400
+      message: nginx/1.10.2
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:08:11 GMT
+      Via:
+      - kong/0.9.5
+      X-Kong-Proxy-Latency:
+      - '46'
+      X-Kong-Upstream-Latency:
+      - '23'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '991'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '207'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":"ERROR","copyright":"Copyright (c) 2013 The New York Times
+        Company.  All Rights Reserved.","errors":["Parameter <begin_date> value failed
+        to match validation rule:: <<\/^\\d{8}$\/>>"],"results":[]}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:08:11 GMT
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=20161215
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:09:05 GMT
+      Server:
+      - nginx/1.10.2
+      Via:
+      - kong/0.9.5
+      X-Cached:
+      - MISS
+      X-Kong-Proxy-Latency:
+      - '102'
+      X-Kong-Upstream-Latency:
+      - '91'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '990'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '12795'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"meta":{"hits":808,"time":42,"offset":0},"docs":[{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-no-new-casino-vegas.html","snippet":"An
+        Australian company says it won''t proceed with a project for a 1,100-room
+        hotel-casino on the Las Vegas Strip....","lead_paragraph":"An Australian company
+        says it won''t proceed with a project for a 1,100-room hotel-casino on the
+        Las Vegas Strip.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Australian
+        Company Won''t Proceed With Vegas Strip Resort","print_headline":"Australian
+        Company Won''t Proceed With Vegas Strip Resort"},"keywords":[],"pub_date":"2016-12-15T20:06:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f7db95d0e039260763f5","word_count":"133","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/middleeast\/15reuters-mideast-crisis-syria-kerry.html","snippet":"U.S.
+        Secretary of State John Kerry said on Thursday that the government of Syrian
+        President Bashar al-Assad is carrying out \"nothing short of a massacre\"
+        in Aleppo....","lead_paragraph":"U.S. Secretary of State John Kerry said on
+        Thursday that the government of Syrian President Bashar al-Assad is carrying
+        out \"nothing short of a massacre\" in Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Kerry
+        Says Assad Government Carrying Out ''Massacre'' in Aleppo","print_headline":"Kerry
+        Says Assad Government Carrying Out ''Massacre'' in Aleppo"},"keywords":[],"pub_date":"2016-12-15T20:06:29+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f7ca95d0e039260763f4","word_count":"77","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/politics\/ap-us-health-overhaul-taxes.html","snippet":"A
+        new study says Republicans may be handing wealthy Americans a big tax cut
+        by repealing President Barack Obama''s health care law....","lead_paragraph":"A
+        new study says Republicans may be handing wealthy Americans a big tax cut
+        by repealing President Barack Obama''s health care law.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Study:
+        Repealing Obama Health Law Cuts Taxes for Wealthy","print_headline":"Study:
+        Repealing Obama Health Law Cuts Taxes for Wealthy"},"keywords":[],"pub_date":"2016-12-15T20:04:04+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":"Politics","byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f73c95d0e039260763f3","word_count":"129","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/business\/15reuters-cyber-jpmorgan.html","snippet":"The
+        Russian government offered asylum to a Maryland-born man facing U.S. charges
+        he was part of a computer hacking scheme targeting financial firms including
+        JPMorgan Chase &amp; Co, but he turned down the offer, his lawyer said on
+        Thursday....","lead_paragraph":"The Russian government offered asylum to a
+        Maryland-born man facing U.S. charges he was part of a computer hacking scheme
+        targeting financial firms including JPMorgan Chase &amp; Co, but he turned
+        down the offer, his lawyer said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"American
+        Charged in Bank Hacking Turned Down Russian Asylum: Lawyer","print_headline":"American
+        Charged in Bank Hacking Turned Down Russian Asylum: Lawyer"},"keywords":[],"pub_date":"2016-12-15T20:03:33+0000","document_type":"article","news_desk":null,"section_name":"Business
+        Day","subsection_name":null,"byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f71b95d0e039260763f2","word_count":"432","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/business\/15reuters-usa-property-foreigninvestment-afire.html","snippet":"New
+        York City remained the top choice this year among foreign investors in commercial
+        real estate while Washington fell to No. 15 as a global destination and dropped
+        from the top five U.S. cities for the first time, a survey showed on Thursday....","lead_paragraph":"New
+        York City remained the top choice this year among foreign investors in commercial
+        real estate while Washington fell to No. 15 as a global destination and dropped
+        from the top five U.S. cities for the first time, a survey showed on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"New
+        York Still the Apple of Foreign Property Investors'' Eyes: Survey","print_headline":"New
+        York Still the Apple of Foreign Property Investors'' Eyes: Survey"},"keywords":[],"pub_date":"2016-12-15T20:03:29+0000","document_type":"article","news_desk":null,"section_name":"Business
+        Day","subsection_name":null,"byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f71795d0e039260763f1","word_count":"374","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/video\/world\/middleeast\/100000004824362\/evacuations-underway-in-aleppo.html","snippet":"Hundreds
+        of people are leaving opposition-held parts of Aleppo, Syria, in a renewed
+        effort to evacuate civilians....","lead_paragraph":"Hundreds of people are
+        leaving opposition-held parts of Aleppo, Syria, in a renewed effort to evacuate
+        civilians.","abstract":null,"print_page":null,"blog":[],"source":"The New
+        York Times","multimedia":[{"width":190,"url":"images\/2016\/12\/16\/world\/16Syria2\/16Syria2-thumbWide.jpg","height":126,"subtype":"wide","legacy":{"wide":"images\/2016\/12\/16\/world\/16Syria2\/16Syria2-thumbWide.jpg","wideheight":"126","widewidth":"190"},"type":"image"},{"width":600,"url":"images\/2016\/12\/16\/world\/16Syria2\/16Syria2-articleLarge.jpg","height":371,"subtype":"xlarge","legacy":{"xlargewidth":"600","xlarge":"images\/2016\/12\/16\/world\/16Syria2\/16Syria2-articleLarge.jpg","xlargeheight":"371"},"type":"image"},{"width":75,"url":"images\/2016\/12\/16\/world\/16Syria2\/16Syria2-thumbStandard.jpg","height":75,"subtype":"thumbnail","legacy":{"thumbnailheight":"75","thumbnail":"images\/2016\/12\/16\/world\/16Syria2\/16Syria2-thumbStandard.jpg","thumbnailwidth":"75"},"type":"image"}],"headline":{"main":"Evacuations
+        Underway in Aleppo"},"keywords":[{"rank":"1","is_major":"N","name":"subject","value":"Evacuations
+        and Evacuees"},{"rank":"2","is_major":"N","name":"glocations","value":"Aleppo
+        (Syria)"},{"rank":"3","is_major":"N","name":"glocations","value":"Syria"}],"pub_date":"2016-12-15T20:00:56+0000","document_type":"multimedia","news_desk":"World
+        \/ Middle East","section_name":"World","subsection_name":"Middle East","byline":{"person":[{"organization":"","role":"reported","firstname":"Yara","rank":1,"lastname":"BISHARA"}],"original":"By
+        YARA BISHARA"},"type_of_material":null,"_id":"5852f6a795d0e039260763f0","word_count":"17","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/politics\/ap-us-airlines-price-gouging.html","snippet":"The
+        Transportation Department says it has ended its investigation into allegations
+        of price gouging by five airlines operating flights in the Northeast without
+        finding any wrongdoing....","lead_paragraph":"The Transportation Department
+        says it has ended its investigation into allegations of price gouging by five
+        airlines operating flights in the Northeast without finding any wrongdoing.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Feds
+        End Airline Price-Gouging Probe Without Finding Fault","print_headline":"Feds
+        End Airline Price-Gouging Probe Without Finding Fault"},"keywords":[],"pub_date":"2016-12-15T20:00:54+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":"Politics","byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f6a395d0e039260763ef","word_count":"132","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/2016\/12\/15\/fashion\/social-qs-advice-family-visit-hotel-holiday-party-invitation-gift-giving.html","snippet":"Also:
+        When you realize you didn\u2019t get an invitation to a holiday party you\u2019ve
+        gone to for years; the complexities of gift giving, and more....","lead_paragraph":"Also:
+        When you realize you didn\u2019t get an invitation to a holiday party you\u2019ve
+        gone to for years; the complexities of gift giving, and more.","abstract":null,"print_page":null,"blog":[],"source":"The
+        New York Times","multimedia":[{"width":190,"url":"images\/2011\/07\/28\/fashion\/social_inline\/social_inline-thumbWide-v3.jpg","height":126,"subtype":"wide","legacy":{"wide":"images\/2011\/07\/28\/fashion\/social_inline\/social_inline-thumbWide-v3.jpg","wideheight":"126","widewidth":"190"},"type":"image"},{"width":600,"url":"images\/2011\/07\/28\/fashion\/social_inline\/social_inline-articleLarge-v2.jpg","height":599,"subtype":"xlarge","legacy":{"xlargewidth":"600","xlarge":"images\/2011\/07\/28\/fashion\/social_inline\/social_inline-articleLarge-v2.jpg","xlargeheight":"599"},"type":"image"},{"width":75,"url":"images\/2011\/07\/28\/fashion\/social_inline\/social_inline-thumbStandard-v3.jpg","height":75,"subtype":"thumbnail","legacy":{"thumbnailheight":"75","thumbnail":"images\/2011\/07\/28\/fashion\/social_inline\/social_inline-thumbStandard-v3.jpg","thumbnailwidth":"75"},"type":"image"}],"headline":{"main":"Can
+        I Stay at a Hotel When Visiting My Crowded Family Home?","content_kicker":"Social
+        Q\u2019s","kicker":"Social Q\u2019s","print_headline":"Not Home, Alone"},"keywords":[{"rank":"1","is_major":"N","name":"subject","value":"Customs,
+        Etiquette and Manners"},{"rank":"3","is_major":"N","name":"subject","value":"Gifts"}],"pub_date":"2016-12-15T19:58:59+0000","document_type":"article","news_desk":"Styles","section_name":"Fashion
+        & Style","subsection_name":null,"byline":{"person":[{"organization":"","role":"reported","firstname":"Philip","rank":1,"lastname":"GALANES"}],"original":"By
+        PHILIP GALANES"},"type_of_material":"News","_id":"5852f60d95d0e039260763ee","word_count":"860","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/europe\/15reuters-mideast-crisis-syria-demistura.html","snippet":"U.N.
+        envoy for Syria Staffan de Mistura said on Thursday some 50,000 people remained
+        in east Aleppo with about 10,000, including fighters, likely to be evacuated
+        to the rebel-stronghold of Idlib....","lead_paragraph":"U.N. envoy for Syria
+        Staffan de Mistura said on Thursday some 50,000 people remained in east Aleppo
+        with about 10,000, including fighters, likely to be evacuated to the rebel-stronghold
+        of Idlib. ","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"U.N.
+        Envoy Says 50,000 Still to Be Evacuated From East Aleppo","print_headline":"U.N.
+        Envoy Says 50,000 Still to Be Evacuated From East Aleppo"},"keywords":[],"pub_date":"2016-12-15T19:51:28+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Europe","byline":{"person":[],"original":"By
+        REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f44995d0e039260763ed","word_count":"121","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/politics\/ap-us-electoral-college-abridged.html","snippet":"There''s
+        more hustle than hope behind an effort to derail Donald Trump''s presidency
+        in the Electoral College....","lead_paragraph":"There''s more hustle than
+        hope behind an effort to derail Donald Trump''s presidency in the Electoral
+        College.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Don''t
+        Look to the Electoral College to Upend Trump","print_headline":"Don''t Look
+        to the Electoral College to Upend Trump"},"keywords":[],"pub_date":"2016-12-15T19:48:42+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":"Politics","byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f39f95d0e039260763ec","word_count":"814","slideshow_credits":null}]},"status":"OK","copyright":"Copyright
+        (c) 2013 The New York Times Company.  All Rights Reserved."}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:09:05 GMT
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=20161215
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:13:34 GMT
+      Server:
+      - nginx/1.10.2
+      Via:
+      - kong/0.9.5
+      X-Cached:
+      - EXPIRED
+      X-Kong-Proxy-Latency:
+      - '35'
+      X-Kong-Upstream-Latency:
+      - '74'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '989'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '11081'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"meta":{"hits":813,"time":31,"offset":0},"docs":[{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/world\/middleeast\/ap-un-united-nations-conflict-children.html","snippet":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated....","lead_paragraph":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict","print_headline":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict"},"keywords":[],"pub_date":"2016-12-15T20:12:51+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94c95d0e039260763fa","word_count":"370","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-tx-death-penalty-texas.html","snippet":"The
+        two Texas counties from which more people have been executed than any others
+        in the nation over the last four decades did not send a single convicted killer
+        to death row in 2016....","lead_paragraph":"The two Texas counties from which
+        more people have been executed than any others in the nation over the last
+        four decades did not send a single convicted killer to death row in 2016.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas,
+        Long a Leader in Executions, Trails This Year","print_headline":"Texas, Long
+        a Leader in Executions, Trails This Year"},"keywords":[],"pub_date":"2016-12-15T20:12:50+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94995d0e039260763f8","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-wal-mart-savings-program.html","snippet":"Wal-Mart
+        has a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts....","lead_paragraph":"Wal-Mart has
+        a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes","print_headline":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes"},"keywords":[],"pub_date":"2016-12-15T20:12:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94b95d0e039260763f9","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-linus-poster-texas-attorney-general.html","snippet":"Texas''
+        attorney general has sued one of the state''s school districts over its removal
+        of a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"...","lead_paragraph":"Texas'' attorney
+        general has sued one of the state''s school districts over its removal of
+        a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas
+        Sues School District Over Charlie Brown Decoration","print_headline":"Texas
+        Sues School District Over Charlie Brown Decoration"},"keywords":[],"pub_date":"2016-12-15T20:09:49+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f89395d0e039260763f7","word_count":"133","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/middleeast\/15reuters-egyptair-crash-investigation-bea.html","snippet":"French
+        investigators said on Thursday that it was not possible at this stage to draw
+        conclusions on what might have caused the crash of an Egyptair flight in May
+        with the deaths of all 66 people on board....","lead_paragraph":"French investigators
+        said on Thursday that it was not possible at this stage to draw conclusions
+        on what might have caused the crash of an Egyptair flight in May with the
+        deaths of all 66 people on board.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"French
+        Investigators Say Not Possible Yet to Say What Caused Egyptair Crash","print_headline":"French
+        Investigators Say Not Possible Yet to Say What Caused Egyptair Crash"},"keywords":[],"pub_date":"2016-12-15T20:09:29+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f87e95d0e039260763f6","word_count":"149","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-no-new-casino-vegas.html","snippet":"An
+        Australian company says it won''t proceed with a project for a 1,100-room
+        hotel-casino on the Las Vegas Strip....","lead_paragraph":"An Australian company
+        says it won''t proceed with a project for a 1,100-room hotel-casino on the
+        Las Vegas Strip.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Australian
+        Company Won''t Proceed With Vegas Strip Resort","print_headline":"Australian
+        Company Won''t Proceed With Vegas Strip Resort"},"keywords":[],"pub_date":"2016-12-15T20:06:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f7db95d0e039260763f5","word_count":"133","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/middleeast\/15reuters-mideast-crisis-syria-kerry.html","snippet":"U.S.
+        Secretary of State John Kerry said on Thursday that the government of Syrian
+        President Bashar al-Assad is carrying out \"nothing short of a massacre\"
+        in Aleppo....","lead_paragraph":"U.S. Secretary of State John Kerry said on
+        Thursday that the government of Syrian President Bashar al-Assad is carrying
+        out \"nothing short of a massacre\" in Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Kerry
+        Says Assad Government Carrying Out ''Massacre'' in Aleppo","print_headline":"Kerry
+        Says Assad Government Carrying Out ''Massacre'' in Aleppo"},"keywords":[],"pub_date":"2016-12-15T20:06:30+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f7ca95d0e039260763f4","word_count":"77","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/politics\/ap-us-health-overhaul-taxes.html","snippet":"A
+        new study says Republicans may be handing wealthy Americans a big tax cut
+        by repealing President Barack Obama''s health care law....","lead_paragraph":"A
+        new study says Republicans may be handing wealthy Americans a big tax cut
+        by repealing President Barack Obama''s health care law.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Study:
+        Repealing Obama Health Law Cuts Taxes for Wealthy","print_headline":"Study:
+        Repealing Obama Health Law Cuts Taxes for Wealthy"},"keywords":[],"pub_date":"2016-12-15T20:04:04+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":"Politics","byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f73c95d0e039260763f3","word_count":"129","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/business\/15reuters-cyber-jpmorgan.html","snippet":"The
+        Russian government offered asylum to a Maryland-born man facing U.S. charges
+        he was part of a computer hacking scheme targeting financial firms including
+        JPMorgan Chase &amp; Co, but he turned down the offer, his lawyer said on
+        Thursday....","lead_paragraph":"The Russian government offered asylum to a
+        Maryland-born man facing U.S. charges he was part of a computer hacking scheme
+        targeting financial firms including JPMorgan Chase &amp; Co, but he turned
+        down the offer, his lawyer said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"American
+        Charged in Bank Hacking Turned Down Russian Asylum: Lawyer","print_headline":"American
+        Charged in Bank Hacking Turned Down Russian Asylum: Lawyer"},"keywords":[],"pub_date":"2016-12-15T20:03:33+0000","document_type":"article","news_desk":null,"section_name":"Business
+        Day","subsection_name":null,"byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f71b95d0e039260763f2","word_count":"432","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/business\/15reuters-usa-property-foreigninvestment-afire.html","snippet":"New
+        York City remained the top choice this year among foreign investors in commercial
+        real estate while Washington fell to No. 15 as a global destination and dropped
+        from the top five U.S. cities for the first time, a survey showed on Thursday....","lead_paragraph":"New
+        York City remained the top choice this year among foreign investors in commercial
+        real estate while Washington fell to No. 15 as a global destination and dropped
+        from the top five U.S. cities for the first time, a survey showed on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"New
+        York Still the Apple of Foreign Property Investors'' Eyes: Survey","print_headline":"New
+        York Still the Apple of Foreign Property Investors'' Eyes: Survey"},"keywords":[],"pub_date":"2016-12-15T20:03:29+0000","document_type":"article","news_desk":null,"section_name":"Business
+        Day","subsection_name":null,"byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f71795d0e039260763f1","word_count":"374","slideshow_credits":null}]},"status":"OK","copyright":"Copyright
+        (c) 2013 The New York Times Company.  All Rights Reserved."}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:13:34 GMT
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=20161215
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:14:06 GMT
+      Server:
+      - nginx/1.10.2
+      Via:
+      - kong/0.9.5
+      X-Cached:
+      - MISS
+      X-Kong-Proxy-Latency:
+      - '130'
+      X-Kong-Upstream-Latency:
+      - '68'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '988'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '12025'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"meta":{"hits":814,"time":24,"offset":0},"docs":[{"web_url":"http:\/\/www.nytimes.com\/video\/world\/middleeast\/100000004824389\/countries-showing-solidarity-with-aleppo.html","snippet":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo....","lead_paragraph":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[{"width":190,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","height":126,"subtype":"wide","legacy":{"wide":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","wideheight":"126","widewidth":"190"},"type":"image"},{"width":600,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","height":392,"subtype":"xlarge","legacy":{"xlargewidth":"600","xlarge":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","xlargeheight":"392"},"type":"image"},{"width":75,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","height":75,"subtype":"thumbnail","legacy":{"thumbnailheight":"75","thumbnail":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","thumbnailwidth":"75"},"type":"image"}],"headline":{"main":"Countries
+        Showing Solidarity With Aleppo"},"keywords":[{"rank":"1","is_major":"N","name":"glocations","value":"Aleppo
+        (Syria)"},{"rank":"2","is_major":"N","name":"subject","value":"Demonstrations,
+        Protests and Riots"},{"rank":"3","is_major":"N","name":"subject","value":"Politics
+        and Government"}],"pub_date":"2016-12-15T20:13:19+0000","document_type":"multimedia","news_desk":"World
+        \/ Middle East","section_name":"World","subsection_name":"Middle East","byline":{"person":[{"organization":"","role":"reported","firstname":"Camilla","rank":1,"lastname":"SCHICK"}],"original":"By
+        CAMILLA SCHICK"},"type_of_material":null,"_id":"5852f97695d0e039260763fb","word_count":"23","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/world\/middleeast\/ap-un-united-nations-conflict-children.html","snippet":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated....","lead_paragraph":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict","print_headline":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict"},"keywords":[],"pub_date":"2016-12-15T20:12:51+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94c95d0e039260763fa","word_count":"370","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-tx-death-penalty-texas.html","snippet":"The
+        two Texas counties from which more people have been executed than any others
+        in the nation over the last four decades did not send a single convicted killer
+        to death row in 2016....","lead_paragraph":"The two Texas counties from which
+        more people have been executed than any others in the nation over the last
+        four decades did not send a single convicted killer to death row in 2016.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas,
+        Long a Leader in Executions, Trails This Year","print_headline":"Texas, Long
+        a Leader in Executions, Trails This Year"},"keywords":[],"pub_date":"2016-12-15T20:12:50+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94995d0e039260763f8","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-wal-mart-savings-program.html","snippet":"Wal-Mart
+        has a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts....","lead_paragraph":"Wal-Mart has
+        a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes","print_headline":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes"},"keywords":[],"pub_date":"2016-12-15T20:12:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94b95d0e039260763f9","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-linus-poster-texas-attorney-general.html","snippet":"Texas''
+        attorney general has sued one of the state''s school districts over its removal
+        of a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"...","lead_paragraph":"Texas'' attorney
+        general has sued one of the state''s school districts over its removal of
+        a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas
+        Sues School District Over Charlie Brown Decoration","print_headline":"Texas
+        Sues School District Over Charlie Brown Decoration"},"keywords":[],"pub_date":"2016-12-15T20:09:49+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f89395d0e039260763f7","word_count":"133","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/middleeast\/15reuters-egyptair-crash-investigation-bea.html","snippet":"French
+        investigators said on Thursday that it was not possible at this stage to draw
+        conclusions on what might have caused the crash of an Egyptair flight in May
+        with the deaths of all 66 people on board....","lead_paragraph":"French investigators
+        said on Thursday that it was not possible at this stage to draw conclusions
+        on what might have caused the crash of an Egyptair flight in May with the
+        deaths of all 66 people on board.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"French
+        Investigators Say Not Possible Yet to Say What Caused Egyptair Crash","print_headline":"French
+        Investigators Say Not Possible Yet to Say What Caused Egyptair Crash"},"keywords":[],"pub_date":"2016-12-15T20:09:29+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f87e95d0e039260763f6","word_count":"149","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-no-new-casino-vegas.html","snippet":"An
+        Australian company says it won''t proceed with a project for a 1,100-room
+        hotel-casino on the Las Vegas Strip....","lead_paragraph":"An Australian company
+        says it won''t proceed with a project for a 1,100-room hotel-casino on the
+        Las Vegas Strip.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Australian
+        Company Won''t Proceed With Vegas Strip Resort","print_headline":"Australian
+        Company Won''t Proceed With Vegas Strip Resort"},"keywords":[],"pub_date":"2016-12-15T20:06:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f7db95d0e039260763f5","word_count":"133","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/middleeast\/15reuters-mideast-crisis-syria-kerry.html","snippet":"U.S.
+        Secretary of State John Kerry said on Thursday that the government of Syrian
+        President Bashar al-Assad is carrying out \"nothing short of a massacre\"
+        in Aleppo....","lead_paragraph":"U.S. Secretary of State John Kerry said on
+        Thursday that the government of Syrian President Bashar al-Assad is carrying
+        out \"nothing short of a massacre\" in Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Kerry
+        Says Assad Government Carrying Out ''Massacre'' in Aleppo","print_headline":"Kerry
+        Says Assad Government Carrying Out ''Massacre'' in Aleppo"},"keywords":[],"pub_date":"2016-12-15T20:06:30+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f7ca95d0e039260763f4","word_count":"77","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/politics\/ap-us-health-overhaul-taxes.html","snippet":"A
+        new study says Republicans may be handing wealthy Americans a big tax cut
+        by repealing President Barack Obama''s health care law....","lead_paragraph":"A
+        new study says Republicans may be handing wealthy Americans a big tax cut
+        by repealing President Barack Obama''s health care law.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Study:
+        Repealing Obama Health Law Cuts Taxes for Wealthy","print_headline":"Study:
+        Repealing Obama Health Law Cuts Taxes for Wealthy"},"keywords":[],"pub_date":"2016-12-15T20:04:04+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":"Politics","byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f73c95d0e039260763f3","word_count":"129","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/business\/15reuters-cyber-jpmorgan.html","snippet":"The
+        Russian government offered asylum to a Maryland-born man facing U.S. charges
+        he was part of a computer hacking scheme targeting financial firms including
+        JPMorgan Chase &amp; Co, but he turned down the offer, his lawyer said on
+        Thursday....","lead_paragraph":"The Russian government offered asylum to a
+        Maryland-born man facing U.S. charges he was part of a computer hacking scheme
+        targeting financial firms including JPMorgan Chase &amp; Co, but he turned
+        down the offer, his lawyer said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"American
+        Charged in Bank Hacking Turned Down Russian Asylum: Lawyer","print_headline":"American
+        Charged in Bank Hacking Turned Down Russian Asylum: Lawyer"},"keywords":[],"pub_date":"2016-12-15T20:03:33+0000","document_type":"article","news_desk":null,"section_name":"Business
+        Day","subsection_name":null,"byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f71b95d0e039260763f2","word_count":"432","slideshow_credits":null}]},"status":"OK","copyright":"Copyright
+        (c) 2013 The New York Times Company.  All Rights Reserved."}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:14:06 GMT
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=20161215
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:15:14 GMT
+      Server:
+      - nginx/1.10.2
+      Via:
+      - kong/0.9.5
+      X-Cached:
+      - EXPIRED
+      X-Kong-Proxy-Latency:
+      - '48'
+      X-Kong-Upstream-Latency:
+      - '90'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '987'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '12025'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"meta":{"hits":814,"time":46,"offset":0},"docs":[{"web_url":"http:\/\/www.nytimes.com\/video\/world\/middleeast\/100000004824389\/countries-showing-solidarity-with-aleppo.html","snippet":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo....","lead_paragraph":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[{"width":190,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","height":126,"subtype":"wide","legacy":{"wide":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","wideheight":"126","widewidth":"190"},"type":"image"},{"width":600,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","height":392,"subtype":"xlarge","legacy":{"xlargewidth":"600","xlarge":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","xlargeheight":"392"},"type":"image"},{"width":75,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","height":75,"subtype":"thumbnail","legacy":{"thumbnailheight":"75","thumbnail":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","thumbnailwidth":"75"},"type":"image"}],"headline":{"main":"Countries
+        Showing Solidarity With Aleppo"},"keywords":[{"rank":"1","is_major":"N","name":"glocations","value":"Aleppo
+        (Syria)"},{"rank":"2","is_major":"N","name":"subject","value":"Demonstrations,
+        Protests and Riots"},{"rank":"3","is_major":"N","name":"subject","value":"Politics
+        and Government"}],"pub_date":"2016-12-15T20:13:19+0000","document_type":"multimedia","news_desk":"World
+        \/ Middle East","section_name":"World","subsection_name":"Middle East","byline":{"person":[{"organization":"","role":"reported","firstname":"Camilla","rank":1,"lastname":"SCHICK"}],"original":"By
+        CAMILLA SCHICK"},"type_of_material":null,"_id":"5852f97695d0e039260763fb","word_count":"23","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/world\/middleeast\/ap-un-united-nations-conflict-children.html","snippet":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated....","lead_paragraph":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict","print_headline":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict"},"keywords":[],"pub_date":"2016-12-15T20:12:51+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94c95d0e039260763fa","word_count":"370","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-tx-death-penalty-texas.html","snippet":"The
+        two Texas counties from which more people have been executed than any others
+        in the nation over the last four decades did not send a single convicted killer
+        to death row in 2016....","lead_paragraph":"The two Texas counties from which
+        more people have been executed than any others in the nation over the last
+        four decades did not send a single convicted killer to death row in 2016.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas,
+        Long a Leader in Executions, Trails This Year","print_headline":"Texas, Long
+        a Leader in Executions, Trails This Year"},"keywords":[],"pub_date":"2016-12-15T20:12:50+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94995d0e039260763f8","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-wal-mart-savings-program.html","snippet":"Wal-Mart
+        has a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts....","lead_paragraph":"Wal-Mart has
+        a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes","print_headline":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes"},"keywords":[],"pub_date":"2016-12-15T20:12:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94b95d0e039260763f9","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-linus-poster-texas-attorney-general.html","snippet":"Texas''
+        attorney general has sued one of the state''s school districts over its removal
+        of a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"...","lead_paragraph":"Texas'' attorney
+        general has sued one of the state''s school districts over its removal of
+        a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas
+        Sues School District Over Charlie Brown Decoration","print_headline":"Texas
+        Sues School District Over Charlie Brown Decoration"},"keywords":[],"pub_date":"2016-12-15T20:09:49+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f89395d0e039260763f7","word_count":"133","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/middleeast\/15reuters-egyptair-crash-investigation-bea.html","snippet":"French
+        investigators said on Thursday that it was not possible at this stage to draw
+        conclusions on what might have caused the crash of an Egyptair flight in May
+        with the deaths of all 66 people on board....","lead_paragraph":"French investigators
+        said on Thursday that it was not possible at this stage to draw conclusions
+        on what might have caused the crash of an Egyptair flight in May with the
+        deaths of all 66 people on board.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"French
+        Investigators Say Not Possible Yet to Say What Caused Egyptair Crash","print_headline":"French
+        Investigators Say Not Possible Yet to Say What Caused Egyptair Crash"},"keywords":[],"pub_date":"2016-12-15T20:09:29+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f87e95d0e039260763f6","word_count":"149","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-no-new-casino-vegas.html","snippet":"An
+        Australian company says it won''t proceed with a project for a 1,100-room
+        hotel-casino on the Las Vegas Strip....","lead_paragraph":"An Australian company
+        says it won''t proceed with a project for a 1,100-room hotel-casino on the
+        Las Vegas Strip.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Australian
+        Company Won''t Proceed With Vegas Strip Resort","print_headline":"Australian
+        Company Won''t Proceed With Vegas Strip Resort"},"keywords":[],"pub_date":"2016-12-15T20:06:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f7db95d0e039260763f5","word_count":"133","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/middleeast\/15reuters-mideast-crisis-syria-kerry.html","snippet":"U.S.
+        Secretary of State John Kerry said on Thursday that the government of Syrian
+        President Bashar al-Assad is carrying out \"nothing short of a massacre\"
+        in Aleppo....","lead_paragraph":"U.S. Secretary of State John Kerry said on
+        Thursday that the government of Syrian President Bashar al-Assad is carrying
+        out \"nothing short of a massacre\" in Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Kerry
+        Says Assad Government Carrying Out ''Massacre'' in Aleppo","print_headline":"Kerry
+        Says Assad Government Carrying Out ''Massacre'' in Aleppo"},"keywords":[],"pub_date":"2016-12-15T20:06:30+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f7ca95d0e039260763f4","word_count":"77","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/politics\/ap-us-health-overhaul-taxes.html","snippet":"A
+        new study says Republicans may be handing wealthy Americans a big tax cut
+        by repealing President Barack Obama''s health care law....","lead_paragraph":"A
+        new study says Republicans may be handing wealthy Americans a big tax cut
+        by repealing President Barack Obama''s health care law.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Study:
+        Repealing Obama Health Law Cuts Taxes for Wealthy","print_headline":"Study:
+        Repealing Obama Health Law Cuts Taxes for Wealthy"},"keywords":[],"pub_date":"2016-12-15T20:04:04+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":"Politics","byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f73c95d0e039260763f3","word_count":"129","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/business\/15reuters-cyber-jpmorgan.html","snippet":"The
+        Russian government offered asylum to a Maryland-born man facing U.S. charges
+        he was part of a computer hacking scheme targeting financial firms including
+        JPMorgan Chase &amp; Co, but he turned down the offer, his lawyer said on
+        Thursday....","lead_paragraph":"The Russian government offered asylum to a
+        Maryland-born man facing U.S. charges he was part of a computer hacking scheme
+        targeting financial firms including JPMorgan Chase &amp; Co, but he turned
+        down the offer, his lawyer said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"American
+        Charged in Bank Hacking Turned Down Russian Asylum: Lawyer","print_headline":"American
+        Charged in Bank Hacking Turned Down Russian Asylum: Lawyer"},"keywords":[],"pub_date":"2016-12-15T20:03:33+0000","document_type":"article","news_desk":null,"section_name":"Business
+        Day","subsection_name":null,"byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f71b95d0e039260763f2","word_count":"432","slideshow_credits":null}]},"status":"OK","copyright":"Copyright
+        (c) 2013 The New York Times Company.  All Rights Reserved."}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:15:14 GMT
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=20161215
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:23:43 GMT
+      Server:
+      - nginx/1.10.2
+      Via:
+      - kong/0.9.5
+      X-Cached:
+      - MISS
+      X-Kong-Proxy-Latency:
+      - '42'
+      X-Kong-Upstream-Latency:
+      - '71'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '986'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '12125'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"meta":{"hits":819,"time":31,"offset":0},"docs":[{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ap-box-hopkins-final-fight.html","snippet":"Bernard
+        Hopkins hobbled into the gym before a sparring session using a cane to aid
+        his small steps. He scrapped his usual stylish Prada glasses for a cheap pair
+        old fogeys might wear and a fake gray beard that sprouted several inches past
+        his chin...","lead_paragraph":"Bernard Hopkins hobbled into the gym before
+        a sparring session using a cane to aid his small steps. He scrapped his usual
+        stylish Prada glasses for a cheap pair old fogeys might wear and a fake gray
+        beard that sprouted several inches past his chin.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Hopkins
+        Ready for Final Fight in Championship Career","print_headline":"Hopkins Ready
+        for Final Fight in Championship Career"},"keywords":[],"pub_date":"2016-12-15T20:19:09+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac295d0e039260763fe","word_count":"975","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ap-car-indycar-andretti-herta.html","snippet":"Hank
+        Steinbrenner, George Steinbrenner IV and Michael Andretti have hired 16-year-old
+        Colton Herta to drive the No. 98 car in the Indy Lights Series next season....","lead_paragraph":"Hank
+        Steinbrenner, George Steinbrenner IV and Michael Andretti have hired 16-year-old
+        Colton Herta to drive the No. 98 car in the Indy Lights Series next season.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Andretti,
+        Steinbrenners Team Up With Teenager Colton Herta","print_headline":"Andretti,
+        Steinbrenners Team Up With Teenager Colton Herta"},"keywords":[],"pub_date":"2016-12-15T20:19:07+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac395d0e039260763ff","word_count":"132","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ncaafootball\/ap-fbc-wake-forest-investigation.html","snippet":"Wake
+        Forest coach Dave Clawson feels betrayed and that his players were cheated
+        by a former assistant coach-turned-broadcaster who peddled Demon Deacons''
+        plays to opponents....","lead_paragraph":"Wake Forest coach Dave Clawson feels
+        betrayed and that his players were cheated by a former assistant coach-turned-broadcaster
+        who peddled Demon Deacons'' plays to opponents.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"''Cheated''
+        Wake Forest Returns to Practice After Scandal","print_headline":"''Cheated''
+        Wake Forest Returns to Practice After Scandal"},"keywords":[],"pub_date":"2016-12-15T20:19:06+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":"College
+        Football","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac395d0e03926076400","word_count":"664","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-kennedy-airport-twa-hotel.html","snippet":"A
+        groundbreaking has been held for a hotel complex at the historic TWA terminal
+        at New York''s Kennedy Airport....","lead_paragraph":"A groundbreaking has
+        been held for a hotel complex at the historic TWA terminal at New York''s
+        Kennedy Airport.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Groundbreaking
+        Held for Hotel at JFK''s Historic TWA Terminal","print_headline":"Groundbreaking
+        Held for Hotel at JFK''s Historic TWA Terminal"},"keywords":[],"pub_date":"2016-12-15T20:15:47+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f9f795d0e039260763fd","word_count":"124","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/us\/15reuters-north-dakota-pipeline-leak.html","snippet":"Cleanup
+        crews have recovered about 1,250 barrels of the 3,100 barrels of oil that
+        leaked into a North Dakota creek last week following a spill on the Belle
+        Fourche Pipeline, a spokeswoman for the pipeline company said on Thursday....","lead_paragraph":"Cleanup
+        crews have recovered about 1,250 barrels of the 3,100 barrels of oil that
+        leaked into a North Dakota creek last week following a spill on the Belle
+        Fourche Pipeline, a spokeswoman for the pipeline company said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Crews
+        Recover 1,250 Barrels of Oil From North Dakota Pipeline Leak","print_headline":"Crews
+        Recover 1,250 Barrels of Oil From North Dakota Pipeline Leak"},"keywords":[],"pub_date":"2016-12-15T20:15:27+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f9e695d0e039260763fc","word_count":"197","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/video\/world\/middleeast\/100000004824389\/countries-showing-solidarity-with-aleppo.html","snippet":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo....","lead_paragraph":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[{"width":190,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","height":126,"subtype":"wide","legacy":{"wide":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","wideheight":"126","widewidth":"190"},"type":"image"},{"width":600,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","height":392,"subtype":"xlarge","legacy":{"xlargewidth":"600","xlarge":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","xlargeheight":"392"},"type":"image"},{"width":75,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","height":75,"subtype":"thumbnail","legacy":{"thumbnailheight":"75","thumbnail":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","thumbnailwidth":"75"},"type":"image"}],"headline":{"main":"Countries
+        Showing Solidarity With Aleppo"},"keywords":[{"rank":"1","is_major":"N","name":"glocations","value":"Aleppo
+        (Syria)"},{"rank":"2","is_major":"N","name":"subject","value":"Demonstrations,
+        Protests and Riots"},{"rank":"3","is_major":"N","name":"subject","value":"Politics
+        and Government"}],"pub_date":"2016-12-15T20:13:19+0000","document_type":"multimedia","news_desk":"World
+        \/ Middle East","section_name":"World","subsection_name":"Middle East","byline":{"person":[{"organization":"","role":"reported","firstname":"Camilla","rank":1,"lastname":"SCHICK"}],"original":"By
+        CAMILLA SCHICK"},"type_of_material":null,"_id":"5852f97695d0e039260763fb","word_count":"23","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/world\/middleeast\/ap-un-united-nations-conflict-children.html","snippet":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated....","lead_paragraph":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict","print_headline":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict"},"keywords":[],"pub_date":"2016-12-15T20:12:51+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94c95d0e039260763fa","word_count":"370","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-tx-death-penalty-texas.html","snippet":"The
+        two Texas counties from which more people have been executed than any others
+        in the nation over the last four decades did not send a single convicted killer
+        to death row in 2016....","lead_paragraph":"The two Texas counties from which
+        more people have been executed than any others in the nation over the last
+        four decades did not send a single convicted killer to death row in 2016.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas,
+        Long a Leader in Executions, Trails This Year","print_headline":"Texas, Long
+        a Leader in Executions, Trails This Year"},"keywords":[],"pub_date":"2016-12-15T20:12:50+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94995d0e039260763f8","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-wal-mart-savings-program.html","snippet":"Wal-Mart
+        has a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts....","lead_paragraph":"Wal-Mart has
+        a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes","print_headline":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes"},"keywords":[],"pub_date":"2016-12-15T20:12:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94b95d0e039260763f9","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-linus-poster-texas-attorney-general.html","snippet":"Texas''
+        attorney general has sued one of the state''s school districts over its removal
+        of a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"...","lead_paragraph":"Texas'' attorney
+        general has sued one of the state''s school districts over its removal of
+        a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas
+        Sues School District Over Charlie Brown Decoration","print_headline":"Texas
+        Sues School District Over Charlie Brown Decoration"},"keywords":[],"pub_date":"2016-12-15T20:09:49+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f89395d0e039260763f7","word_count":"133","slideshow_credits":null}]},"status":"OK","copyright":"Copyright
+        (c) 2013 The New York Times Company.  All Rights Reserved."}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:23:43 GMT
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=20161215
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:23:45 GMT
+      Server:
+      - nginx/1.10.2
+      Via:
+      - kong/0.9.5
+      X-Cached:
+      - EXPIRED
+      X-Kong-Proxy-Latency:
+      - '35'
+      X-Kong-Upstream-Latency:
+      - '89'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '985'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '12125'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"meta":{"hits":819,"time":32,"offset":0},"docs":[{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ap-box-hopkins-final-fight.html","snippet":"Bernard
+        Hopkins hobbled into the gym before a sparring session using a cane to aid
+        his small steps. He scrapped his usual stylish Prada glasses for a cheap pair
+        old fogeys might wear and a fake gray beard that sprouted several inches past
+        his chin...","lead_paragraph":"Bernard Hopkins hobbled into the gym before
+        a sparring session using a cane to aid his small steps. He scrapped his usual
+        stylish Prada glasses for a cheap pair old fogeys might wear and a fake gray
+        beard that sprouted several inches past his chin.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Hopkins
+        Ready for Final Fight in Championship Career","print_headline":"Hopkins Ready
+        for Final Fight in Championship Career"},"keywords":[],"pub_date":"2016-12-15T20:19:09+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac295d0e039260763fe","word_count":"975","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ap-car-indycar-andretti-herta.html","snippet":"Hank
+        Steinbrenner, George Steinbrenner IV and Michael Andretti have hired 16-year-old
+        Colton Herta to drive the No. 98 car in the Indy Lights Series next season....","lead_paragraph":"Hank
+        Steinbrenner, George Steinbrenner IV and Michael Andretti have hired 16-year-old
+        Colton Herta to drive the No. 98 car in the Indy Lights Series next season.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Andretti,
+        Steinbrenners Team Up With Teenager Colton Herta","print_headline":"Andretti,
+        Steinbrenners Team Up With Teenager Colton Herta"},"keywords":[],"pub_date":"2016-12-15T20:19:07+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac395d0e039260763ff","word_count":"132","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ncaafootball\/ap-fbc-wake-forest-investigation.html","snippet":"Wake
+        Forest coach Dave Clawson feels betrayed and that his players were cheated
+        by a former assistant coach-turned-broadcaster who peddled Demon Deacons''
+        plays to opponents....","lead_paragraph":"Wake Forest coach Dave Clawson feels
+        betrayed and that his players were cheated by a former assistant coach-turned-broadcaster
+        who peddled Demon Deacons'' plays to opponents.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"''Cheated''
+        Wake Forest Returns to Practice After Scandal","print_headline":"''Cheated''
+        Wake Forest Returns to Practice After Scandal"},"keywords":[],"pub_date":"2016-12-15T20:19:06+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":"College
+        Football","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac395d0e03926076400","word_count":"664","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-kennedy-airport-twa-hotel.html","snippet":"A
+        groundbreaking has been held for a hotel complex at the historic TWA terminal
+        at New York''s Kennedy Airport....","lead_paragraph":"A groundbreaking has
+        been held for a hotel complex at the historic TWA terminal at New York''s
+        Kennedy Airport.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Groundbreaking
+        Held for Hotel at JFK''s Historic TWA Terminal","print_headline":"Groundbreaking
+        Held for Hotel at JFK''s Historic TWA Terminal"},"keywords":[],"pub_date":"2016-12-15T20:15:47+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f9f795d0e039260763fd","word_count":"124","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/us\/15reuters-north-dakota-pipeline-leak.html","snippet":"Cleanup
+        crews have recovered about 1,250 barrels of the 3,100 barrels of oil that
+        leaked into a North Dakota creek last week following a spill on the Belle
+        Fourche Pipeline, a spokeswoman for the pipeline company said on Thursday....","lead_paragraph":"Cleanup
+        crews have recovered about 1,250 barrels of the 3,100 barrels of oil that
+        leaked into a North Dakota creek last week following a spill on the Belle
+        Fourche Pipeline, a spokeswoman for the pipeline company said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Crews
+        Recover 1,250 Barrels of Oil From North Dakota Pipeline Leak","print_headline":"Crews
+        Recover 1,250 Barrels of Oil From North Dakota Pipeline Leak"},"keywords":[],"pub_date":"2016-12-15T20:15:27+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f9e695d0e039260763fc","word_count":"197","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/video\/world\/middleeast\/100000004824389\/countries-showing-solidarity-with-aleppo.html","snippet":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo....","lead_paragraph":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[{"width":190,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","height":126,"subtype":"wide","legacy":{"wide":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","wideheight":"126","widewidth":"190"},"type":"image"},{"width":600,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","height":392,"subtype":"xlarge","legacy":{"xlargewidth":"600","xlarge":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","xlargeheight":"392"},"type":"image"},{"width":75,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","height":75,"subtype":"thumbnail","legacy":{"thumbnailheight":"75","thumbnail":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","thumbnailwidth":"75"},"type":"image"}],"headline":{"main":"Countries
+        Showing Solidarity With Aleppo"},"keywords":[{"rank":"1","is_major":"N","name":"glocations","value":"Aleppo
+        (Syria)"},{"rank":"2","is_major":"N","name":"subject","value":"Demonstrations,
+        Protests and Riots"},{"rank":"3","is_major":"N","name":"subject","value":"Politics
+        and Government"}],"pub_date":"2016-12-15T20:13:19+0000","document_type":"multimedia","news_desk":"World
+        \/ Middle East","section_name":"World","subsection_name":"Middle East","byline":{"person":[{"organization":"","role":"reported","firstname":"Camilla","rank":1,"lastname":"SCHICK"}],"original":"By
+        CAMILLA SCHICK"},"type_of_material":null,"_id":"5852f97695d0e039260763fb","word_count":"23","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/world\/middleeast\/ap-un-united-nations-conflict-children.html","snippet":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated....","lead_paragraph":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict","print_headline":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict"},"keywords":[],"pub_date":"2016-12-15T20:12:51+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94c95d0e039260763fa","word_count":"370","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-tx-death-penalty-texas.html","snippet":"The
+        two Texas counties from which more people have been executed than any others
+        in the nation over the last four decades did not send a single convicted killer
+        to death row in 2016....","lead_paragraph":"The two Texas counties from which
+        more people have been executed than any others in the nation over the last
+        four decades did not send a single convicted killer to death row in 2016.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas,
+        Long a Leader in Executions, Trails This Year","print_headline":"Texas, Long
+        a Leader in Executions, Trails This Year"},"keywords":[],"pub_date":"2016-12-15T20:12:50+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94995d0e039260763f8","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-wal-mart-savings-program.html","snippet":"Wal-Mart
+        has a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts....","lead_paragraph":"Wal-Mart has
+        a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes","print_headline":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes"},"keywords":[],"pub_date":"2016-12-15T20:12:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94b95d0e039260763f9","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-linus-poster-texas-attorney-general.html","snippet":"Texas''
+        attorney general has sued one of the state''s school districts over its removal
+        of a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"...","lead_paragraph":"Texas'' attorney
+        general has sued one of the state''s school districts over its removal of
+        a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas
+        Sues School District Over Charlie Brown Decoration","print_headline":"Texas
+        Sues School District Over Charlie Brown Decoration"},"keywords":[],"pub_date":"2016-12-15T20:09:49+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f89395d0e039260763f7","word_count":"133","slideshow_credits":null}]},"status":"OK","copyright":"Copyright
+        (c) 2013 The New York Times Company.  All Rights Reserved."}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:23:45 GMT
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=20161215
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:24:04 GMT
+      Server:
+      - nginx/1.10.2
+      Via:
+      - kong/0.9.5
+      X-Cached:
+      - HIT
+      X-Kong-Proxy-Latency:
+      - '61'
+      X-Kong-Upstream-Latency:
+      - '7'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '984'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '12125'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"meta":{"hits":819,"time":32,"offset":0},"docs":[{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ap-box-hopkins-final-fight.html","snippet":"Bernard
+        Hopkins hobbled into the gym before a sparring session using a cane to aid
+        his small steps. He scrapped his usual stylish Prada glasses for a cheap pair
+        old fogeys might wear and a fake gray beard that sprouted several inches past
+        his chin...","lead_paragraph":"Bernard Hopkins hobbled into the gym before
+        a sparring session using a cane to aid his small steps. He scrapped his usual
+        stylish Prada glasses for a cheap pair old fogeys might wear and a fake gray
+        beard that sprouted several inches past his chin.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Hopkins
+        Ready for Final Fight in Championship Career","print_headline":"Hopkins Ready
+        for Final Fight in Championship Career"},"keywords":[],"pub_date":"2016-12-15T20:19:09+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac295d0e039260763fe","word_count":"975","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ap-car-indycar-andretti-herta.html","snippet":"Hank
+        Steinbrenner, George Steinbrenner IV and Michael Andretti have hired 16-year-old
+        Colton Herta to drive the No. 98 car in the Indy Lights Series next season....","lead_paragraph":"Hank
+        Steinbrenner, George Steinbrenner IV and Michael Andretti have hired 16-year-old
+        Colton Herta to drive the No. 98 car in the Indy Lights Series next season.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Andretti,
+        Steinbrenners Team Up With Teenager Colton Herta","print_headline":"Andretti,
+        Steinbrenners Team Up With Teenager Colton Herta"},"keywords":[],"pub_date":"2016-12-15T20:19:07+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac395d0e039260763ff","word_count":"132","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ncaafootball\/ap-fbc-wake-forest-investigation.html","snippet":"Wake
+        Forest coach Dave Clawson feels betrayed and that his players were cheated
+        by a former assistant coach-turned-broadcaster who peddled Demon Deacons''
+        plays to opponents....","lead_paragraph":"Wake Forest coach Dave Clawson feels
+        betrayed and that his players were cheated by a former assistant coach-turned-broadcaster
+        who peddled Demon Deacons'' plays to opponents.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"''Cheated''
+        Wake Forest Returns to Practice After Scandal","print_headline":"''Cheated''
+        Wake Forest Returns to Practice After Scandal"},"keywords":[],"pub_date":"2016-12-15T20:19:06+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":"College
+        Football","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac395d0e03926076400","word_count":"664","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-kennedy-airport-twa-hotel.html","snippet":"A
+        groundbreaking has been held for a hotel complex at the historic TWA terminal
+        at New York''s Kennedy Airport....","lead_paragraph":"A groundbreaking has
+        been held for a hotel complex at the historic TWA terminal at New York''s
+        Kennedy Airport.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Groundbreaking
+        Held for Hotel at JFK''s Historic TWA Terminal","print_headline":"Groundbreaking
+        Held for Hotel at JFK''s Historic TWA Terminal"},"keywords":[],"pub_date":"2016-12-15T20:15:47+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f9f795d0e039260763fd","word_count":"124","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/us\/15reuters-north-dakota-pipeline-leak.html","snippet":"Cleanup
+        crews have recovered about 1,250 barrels of the 3,100 barrels of oil that
+        leaked into a North Dakota creek last week following a spill on the Belle
+        Fourche Pipeline, a spokeswoman for the pipeline company said on Thursday....","lead_paragraph":"Cleanup
+        crews have recovered about 1,250 barrels of the 3,100 barrels of oil that
+        leaked into a North Dakota creek last week following a spill on the Belle
+        Fourche Pipeline, a spokeswoman for the pipeline company said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Crews
+        Recover 1,250 Barrels of Oil From North Dakota Pipeline Leak","print_headline":"Crews
+        Recover 1,250 Barrels of Oil From North Dakota Pipeline Leak"},"keywords":[],"pub_date":"2016-12-15T20:15:27+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f9e695d0e039260763fc","word_count":"197","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/video\/world\/middleeast\/100000004824389\/countries-showing-solidarity-with-aleppo.html","snippet":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo....","lead_paragraph":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[{"width":190,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","height":126,"subtype":"wide","legacy":{"wide":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","wideheight":"126","widewidth":"190"},"type":"image"},{"width":600,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","height":392,"subtype":"xlarge","legacy":{"xlargewidth":"600","xlarge":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","xlargeheight":"392"},"type":"image"},{"width":75,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","height":75,"subtype":"thumbnail","legacy":{"thumbnailheight":"75","thumbnail":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","thumbnailwidth":"75"},"type":"image"}],"headline":{"main":"Countries
+        Showing Solidarity With Aleppo"},"keywords":[{"rank":"1","is_major":"N","name":"glocations","value":"Aleppo
+        (Syria)"},{"rank":"2","is_major":"N","name":"subject","value":"Demonstrations,
+        Protests and Riots"},{"rank":"3","is_major":"N","name":"subject","value":"Politics
+        and Government"}],"pub_date":"2016-12-15T20:13:19+0000","document_type":"multimedia","news_desk":"World
+        \/ Middle East","section_name":"World","subsection_name":"Middle East","byline":{"person":[{"organization":"","role":"reported","firstname":"Camilla","rank":1,"lastname":"SCHICK"}],"original":"By
+        CAMILLA SCHICK"},"type_of_material":null,"_id":"5852f97695d0e039260763fb","word_count":"23","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/world\/middleeast\/ap-un-united-nations-conflict-children.html","snippet":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated....","lead_paragraph":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict","print_headline":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict"},"keywords":[],"pub_date":"2016-12-15T20:12:51+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94c95d0e039260763fa","word_count":"370","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-tx-death-penalty-texas.html","snippet":"The
+        two Texas counties from which more people have been executed than any others
+        in the nation over the last four decades did not send a single convicted killer
+        to death row in 2016....","lead_paragraph":"The two Texas counties from which
+        more people have been executed than any others in the nation over the last
+        four decades did not send a single convicted killer to death row in 2016.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas,
+        Long a Leader in Executions, Trails This Year","print_headline":"Texas, Long
+        a Leader in Executions, Trails This Year"},"keywords":[],"pub_date":"2016-12-15T20:12:50+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94995d0e039260763f8","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-wal-mart-savings-program.html","snippet":"Wal-Mart
+        has a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts....","lead_paragraph":"Wal-Mart has
+        a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes","print_headline":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes"},"keywords":[],"pub_date":"2016-12-15T20:12:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94b95d0e039260763f9","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-linus-poster-texas-attorney-general.html","snippet":"Texas''
+        attorney general has sued one of the state''s school districts over its removal
+        of a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"...","lead_paragraph":"Texas'' attorney
+        general has sued one of the state''s school districts over its removal of
+        a decoration that included a biblical verse recited by Linus in the 1960s
+        TV special \"A Charlie Brown Christmas.\"","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas
+        Sues School District Over Charlie Brown Decoration","print_headline":"Texas
+        Sues School District Over Charlie Brown Decoration"},"keywords":[],"pub_date":"2016-12-15T20:09:49+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f89395d0e039260763f7","word_count":"133","slideshow_credits":null}]},"status":"OK","copyright":"Copyright
+        (c) 2013 The New York Times Company.  All Rights Reserved."}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:24:04 GMT
+- request:
+    method: get
+    uri: https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=90833ef9f3494d1688bcf9ba765417d8&begin_date=20161215
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.nytimes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 15 Dec 2016 20:24:41 GMT
+      Server:
+      - nginx/1.10.2
+      Via:
+      - kong/0.9.5
+      X-Cached:
+      - MISS
+      X-Kong-Proxy-Latency:
+      - '43'
+      X-Kong-Upstream-Latency:
+      - '124'
+      X-Powered-By:
+      - PHP/5.3.3
+      X-Ratelimit-Limit-Day:
+      - '1000'
+      X-Ratelimit-Limit-Second:
+      - '1'
+      X-Ratelimit-Remaining-Day:
+      - '983'
+      X-Ratelimit-Remaining-Second:
+      - '0'
+      Content-Length:
+      - '12006'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"meta":{"hits":820,"time":67,"offset":0},"docs":[{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/world\/middleeast\/15reuters-usa-iran-crime.html","snippet":"An
+        Alaska man has been charged with attempting to evade sanctions on Iran and
+        money laundering, the U.S. Justice Department said on Thursday....","lead_paragraph":"An
+        Alaska man has been charged with attempting to evade sanctions on Iran and
+        money laundering, the U.S. Justice Department said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Alaska
+        Man Charged With Evading Sanctions on Iran, Money Laundering","print_headline":"Alaska
+        Man Charged With Evading Sanctions on Iran, Money Laundering"},"keywords":[],"pub_date":"2016-12-15T20:24:27+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852fc0295d0e03926076401","word_count":"75","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ap-box-hopkins-final-fight.html","snippet":"Bernard
+        Hopkins hobbled into the gym before a sparring session using a cane to aid
+        his small steps. He scrapped his usual stylish Prada glasses for a cheap pair
+        old fogeys might wear and a fake gray beard that sprouted several inches past
+        his chin...","lead_paragraph":"Bernard Hopkins hobbled into the gym before
+        a sparring session using a cane to aid his small steps. He scrapped his usual
+        stylish Prada glasses for a cheap pair old fogeys might wear and a fake gray
+        beard that sprouted several inches past his chin.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Hopkins
+        Ready for Final Fight in Championship Career","print_headline":"Hopkins Ready
+        for Final Fight in Championship Career"},"keywords":[],"pub_date":"2016-12-15T20:19:09+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac295d0e039260763fe","word_count":"975","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ap-car-indycar-andretti-herta.html","snippet":"Hank
+        Steinbrenner, George Steinbrenner IV and Michael Andretti have hired 16-year-old
+        Colton Herta to drive the No. 98 car in the Indy Lights Series next season....","lead_paragraph":"Hank
+        Steinbrenner, George Steinbrenner IV and Michael Andretti have hired 16-year-old
+        Colton Herta to drive the No. 98 car in the Indy Lights Series next season.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Andretti,
+        Steinbrenners Team Up With Teenager Colton Herta","print_headline":"Andretti,
+        Steinbrenners Team Up With Teenager Colton Herta"},"keywords":[],"pub_date":"2016-12-15T20:19:07+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac395d0e039260763ff","word_count":"132","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/sports\/ncaafootball\/ap-fbc-wake-forest-investigation.html","snippet":"Wake
+        Forest coach Dave Clawson feels betrayed and that his players were cheated
+        by a former assistant coach-turned-broadcaster who peddled Demon Deacons''
+        plays to opponents....","lead_paragraph":"Wake Forest coach Dave Clawson feels
+        betrayed and that his players were cheated by a former assistant coach-turned-broadcaster
+        who peddled Demon Deacons'' plays to opponents.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"''Cheated''
+        Wake Forest Returns to Practice After Scandal","print_headline":"''Cheated''
+        Wake Forest Returns to Practice After Scandal"},"keywords":[],"pub_date":"2016-12-15T20:19:06+0000","document_type":"article","news_desk":null,"section_name":"Sports","subsection_name":"College
+        Football","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852fac395d0e03926076400","word_count":"664","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-kennedy-airport-twa-hotel.html","snippet":"A
+        groundbreaking has been held for a hotel complex at the historic TWA terminal
+        at New York''s Kennedy Airport....","lead_paragraph":"A groundbreaking has
+        been held for a hotel complex at the historic TWA terminal at New York''s
+        Kennedy Airport.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Groundbreaking
+        Held for Hotel at JFK''s Historic TWA Terminal","print_headline":"Groundbreaking
+        Held for Hotel at JFK''s Historic TWA Terminal"},"keywords":[],"pub_date":"2016-12-15T20:15:47+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f9f795d0e039260763fd","word_count":"124","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/reuters\/2016\/12\/15\/us\/15reuters-north-dakota-pipeline-leak.html","snippet":"Cleanup
+        crews have recovered about 1,250 barrels of the 3,100 barrels of oil that
+        leaked into a North Dakota creek last week following a spill on the Belle
+        Fourche Pipeline, a spokeswoman for the pipeline company said on Thursday....","lead_paragraph":"Cleanup
+        crews have recovered about 1,250 barrels of the 3,100 barrels of oil that
+        leaked into a North Dakota creek last week following a spill on the Belle
+        Fourche Pipeline, a spokeswoman for the pipeline company said on Thursday.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[],"headline":{"main":"Crews
+        Recover 1,250 Barrels of Oil From North Dakota Pipeline Leak","print_headline":"Crews
+        Recover 1,250 Barrels of Oil From North Dakota Pipeline Leak"},"keywords":[],"pub_date":"2016-12-15T20:15:27+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        REUTERS","organization":"REUTERS"},"type_of_material":"News","_id":"5852f9e695d0e039260763fc","word_count":"197","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/video\/world\/middleeast\/100000004824389\/countries-showing-solidarity-with-aleppo.html","snippet":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo....","lead_paragraph":"Demonstrations
+        were held in several countries this week against the Syrian government and
+        in solidarity with rebels and civilians trapped in eastern Aleppo.","abstract":null,"print_page":null,"blog":[],"source":"Reuters","multimedia":[{"width":190,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","height":126,"subtype":"wide","legacy":{"wide":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbWide.jpg","wideheight":"126","widewidth":"190"},"type":"image"},{"width":600,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","height":392,"subtype":"xlarge","legacy":{"xlargewidth":"600","xlarge":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-articleLarge.jpg","xlargeheight":"392"},"type":"image"},{"width":75,"url":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","height":75,"subtype":"thumbnail","legacy":{"thumbnailheight":"75","thumbnail":"images\/2016\/12\/16\/world\/16SOLIDARITY-VIDEO\/16SOLIDARITY-VIDEO-thumbStandard.jpg","thumbnailwidth":"75"},"type":"image"}],"headline":{"main":"Countries
+        Showing Solidarity With Aleppo"},"keywords":[{"rank":"1","is_major":"N","name":"glocations","value":"Aleppo
+        (Syria)"},{"rank":"2","is_major":"N","name":"subject","value":"Demonstrations,
+        Protests and Riots"},{"rank":"3","is_major":"N","name":"subject","value":"Politics
+        and Government"}],"pub_date":"2016-12-15T20:13:19+0000","document_type":"multimedia","news_desk":"World
+        \/ Middle East","section_name":"World","subsection_name":"Middle East","byline":{"person":[{"organization":"","role":"reported","firstname":"Camilla","rank":1,"lastname":"SCHICK"}],"original":"By
+        CAMILLA SCHICK"},"type_of_material":null,"_id":"5852f97695d0e039260763fb","word_count":"23","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/world\/middleeast\/ap-un-united-nations-conflict-children.html","snippet":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated....","lead_paragraph":"Former
+        British Prime Minister Gordon Brown on Thursday called for a \"new deal\"
+        for children in conflict zones around the globe, saying not since the end
+        of World War II have so many children''s human rights been violated.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict","print_headline":"Ex-British
+        PM Calls for ''New Deal'' for Kids in Conflict"},"keywords":[],"pub_date":"2016-12-15T20:12:51+0000","document_type":"article","news_desk":null,"section_name":"World","subsection_name":"Middle
+        East","byline":{"person":[],"original":"By THE ASSOCIATED PRESS","organization":"THE
+        ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94c95d0e039260763fa","word_count":"370","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-tx-death-penalty-texas.html","snippet":"The
+        two Texas counties from which more people have been executed than any others
+        in the nation over the last four decades did not send a single convicted killer
+        to death row in 2016....","lead_paragraph":"The two Texas counties from which
+        more people have been executed than any others in the nation over the last
+        four decades did not send a single convicted killer to death row in 2016.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Texas,
+        Long a Leader in Executions, Trails This Year","print_headline":"Texas, Long
+        a Leader in Executions, Trails This Year"},"keywords":[],"pub_date":"2016-12-15T20:12:50+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94995d0e039260763f8","word_count":"126","slideshow_credits":null},{"web_url":"http:\/\/www.nytimes.com\/aponline\/2016\/12\/15\/us\/ap-us-wal-mart-savings-program.html","snippet":"Wal-Mart
+        has a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts....","lead_paragraph":"Wal-Mart has
+        a new program that offers prizes as incentives to get its legion of shoppers
+        to sock away money in saving accounts.","abstract":null,"print_page":null,"blog":[],"source":"AP","multimedia":[],"headline":{"main":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes","print_headline":"Wal-Mart
+        Program: Stash Cash in Savings Account, Win Prizes"},"keywords":[],"pub_date":"2016-12-15T20:12:44+0000","document_type":"article","news_desk":null,"section_name":"U.S.","subsection_name":null,"byline":{"person":[],"original":"By
+        THE ASSOCIATED PRESS","organization":"THE ASSOCIATED PRESS"},"type_of_material":"News","_id":"5852f94b95d0e039260763f9","word_count":"126","slideshow_credits":null}]},"status":"OK","copyright":"Copyright
+        (c) 2013 The New York Times Company.  All Rights Reserved."}'
+    http_version: 
+  recorded_at: Thu, 15 Dec 2016 20:24:41 GMT
+recorded_with: VCR 2.5.0

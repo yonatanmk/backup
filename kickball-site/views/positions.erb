@@ -1,0 +1,10 @@
+<h1>The LACKP Kickball Positions</h1>
+<ul>
+  <% @positions.each do |position| %>
+    <li>
+      <a href="/positions/<%= position %>">
+        <%= position %>
+      </a>
+    </li>
+  <% end %>
+</ul>

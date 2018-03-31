@@ -1,0 +1,7 @@
+---
+title: "Amazon Fleet"
+type: "challenge"  # challenge, exercise, article, tutorial, video
+description: "Create a Ruby Class to manage Amazon's new fleet of cargo trucks."
+tags: "ruby, oop"
+ignore:
+- "amazon-fleet.md"

@@ -1,0 +1,22 @@
+<div class="small-6 small-offset-3 columns">
+
+  <h2>Events In the Area</h1>
+  <% @events.events.each do |event|%>
+    <div class="callout primary">
+      <p style="text-align: right">
+        <%=event.type.capitalize.gsub(/_/," ")%>
+      </p>
+      <h3><a href=<%=event.url%>><%=event.name%></a></h3>
+      <div>
+        <p>
+          <%=event.venue%>
+        </p>
+      </div>
+      <div>
+        <p>
+          <%=event.start_time%>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

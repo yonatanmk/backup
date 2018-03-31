@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+  <h3><%= flash.notice %></h3>
+<% end %>
+<% if answer.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h3>
+
+    <ul>
+    <% answer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [question, answer] do |f| %>
+  <%= f.text_area :body, size: "60x12" %><br>
+  <%= f.submit "Post" %>
+<% end %>

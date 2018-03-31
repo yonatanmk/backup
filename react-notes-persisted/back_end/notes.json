@@ -1,0 +1,40 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "body": "first note in first folder",
+      "updated_at": "12/22/2016",
+      "folder_id": 2
+    },
+    {
+      "id": 2,
+      "body": "monkey",
+      "updated_at": "12/23/2016",
+      "folder_id": 2
+    },
+    {
+      "id": 3,
+      "body": "I like large green turtles and I cannot lie...",
+      "updated_at": "12/24/2016",
+      "folder_id": 2
+    },
+    {
+      "id": 4,
+      "body": "boop",
+      "updated_at": "12/25/2016",
+      "folder_id": 2
+    },
+    {
+      "id": 5,
+      "body": "dad's gift",
+      "updated_at": "12/21/2016",
+      "folder_id": 3
+    },
+    {
+      "id": 6,
+      "body": "your mom",
+      "updated_at": "12/25/2016",
+      "folder_id": 4
+    }
+  ]
+}

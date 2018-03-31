@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+  <h2><%= flash.notice %></h2>
+<% end %>
+
+<% if gallery.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(gallery.errors.count, "error") %> prohibited this gallery from being saved:</h3>
+
+    <ul>
+    <% gallery.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for gallery do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :city %>
+  <%= f.text_field :city %><br>
+  <%= f.label :state %>
+  <%= f.text_field :state %><br>
+  <%= f.label :zip %>
+  <%= f.text_field :zip %><br>
+  <%= f.label :description %><br>
+  <%= f.text_area :description, size: "60x12" %><br>
+  <%= f.submit "Add Gallery" %>
+<% end %>

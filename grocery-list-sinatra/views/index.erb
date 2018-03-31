@@ -1,0 +1,31 @@
+<h1>Groceries</h1>
+
+<ul>
+  <%if @groceries%>
+    <%@groceries[1, @groceries.length - 1].each do |grocery|%>
+      <li>
+        <a href="/grocery-list/:<%= grocery[0] %>"> <%=grocery[0]%></a>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<p style="color:red"><%="Error: Please Specify a Grocery Item" if @error %></p>
+
+<form action='/grocery-list' method='post'>
+  <table>
+    <tr>
+      <td><label for="item">Name</label></td>
+      <td><input type="text" id="item" name="item" value="<%=@item ? @item : "" %>"></td>
+    </tr>
+
+    <tr>
+      <td><label for="quantity">Quantity</label></td>
+      <td><input type="text" id="quantity" name="quantity" value="<%=@quantity ? @quantity : "" %>"></td>
+    </tr>
+
+    <tr>
+      <td><input type="submit" value="Add"></td>
+    </tr>
+  <table>
+</form>

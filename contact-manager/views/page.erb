@@ -1,0 +1,14 @@
+<h1>Contacts</h1>
+
+<ul>
+  <% @contacts.each do |contact| %>
+    <li><a href="/contacts/<%= contact.id %>"><%= contact.name %> - <%= contact.phone_number %></a></li>
+  <% end %>
+</ul>
+<a href='/contacts/page/<%=@prev_page%>'><button style='display: inline-block'>Prev</button></a>
+<p style='display: inline-block'>Page <%= @current_page%></p>
+<a href='/contacts/page/<%=@next_page%>'><button style='display: inline-block'>Next</button></a>
+<p><a href='/'>Index</a></p>
+<p><a href='/add'>Add</a></p>
+<p><a href='/delete'>Delete</a></p>
+<p><a href='/search'>Search</a></p>

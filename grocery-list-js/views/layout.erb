@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Groceries</title>
+  <link href="/app.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+  <% if ENV["RACK_ENV"] == "test" %>
+    <script src="all.js"></script>
+  <% else %>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/GroceryItem.js"></script>
+    <script src="js/GroceryList.js"></script>
+    <script src="js/main.js"></script>
+  <% end %>
+  <div class="row">
+    <%= yield %>
+  </div>
+</body>
+</html>

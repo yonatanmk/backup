@@ -1,0 +1,130 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.seatgeek.com/2/events?client_id=NjQyNzQ0OXwxNDgxNzU2NDMx&client_secret=m6Gn7Tpot7jHAo5-yRAFHU6j76EB2scp13RfTHSs&datetime_utc.gte=2016-12-15&venue.city=boston
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.seatgeek.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Fri, 16 Dec 2016 16:49:24 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Etag:
+      - '"656d242a5aef732d233a2844fe647a1db146b81e"'
+      Cache-Control:
+      - max-age=1800
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Varnish:
+      - '1363985563'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"meta":{"per_page":10,"total":1181,"page":1,"took":3,"geolocation":null},"in_hand":{},"events":[{"links":[],"id":3517153,"stats":{"listing_count":1,"average_price":39.0,"lowest_price_good_deals":null,"lowest_price":39.0,"highest_price":39.0},"title":"Street
+        Dogs with Darkbuster","announce_date":"2016-09-13T00:00:00","score":0.410495,"date_tbd":false,"type":"concert","datetime_local":"2016-12-16T18:00:00","visible_until_utc":"2016-12-17T03:00:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"performers":[{"image":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/street-dogs-9e4b46\/1707\/huge.jpg","primary":true,"colors":null,"images":{"huge":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/street-dogs-9e4b46\/1707\/huge.jpg"},"has_upcoming_events":true,"id":1707,"genres":[{"id":452,"slug":"pop","name":"Pop","primary":false},{"id":456,"slug":"rock","name":"Rock","primary":true},{"id":461,"slug":"punk","name":"Punk","primary":false}],"stats":{"event_count":3},"image_license":null,"score":0.348906,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"type":"band","short_name":"Street
+        Dogs","home_venue_id":null,"slug":"street-dogs","divisions":null,"name":"Street
+        Dogs","url":"https:\/\/seatgeek.com\/street-dogs-tickets","image_attribution":null},{"image":null,"colors":null,"images":{},"has_upcoming_events":true,"id":192101,"genres":[{"id":456,"slug":"rock","name":"Rock","primary":false},{"id":457,"slug":"alternative","name":"Alternative","primary":true},{"id":461,"slug":"punk","name":"Punk","primary":false}],"stats":{"event_count":2},"image_license":null,"score":0.48973,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"type":"band","short_name":"Darkbuster","home_venue_id":null,"slug":"darkbuster","divisions":null,"name":"Darkbuster","url":"https:\/\/seatgeek.com\/darkbuster-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/street-dogs-with-darkbuster-tickets\/boston-massachusetts-brighton-music-hall-2016-12-16-6-pm\/concert\/3517153","created_at":"2016-09-13T00:00:00","venue":{"city":"Boston","name":"Brighton
+        Music Hall","extended_address":"Boston, MA 02134","url":"https:\/\/seatgeek.com\/venues\/brighton-music-hall\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"brighton-music-hall","state":"MA","score":0.481129,"postal_code":"02134","location":{"lat":42.3529,"lon":-71.1326},"address":"158
+        Brighton Avenue","timezone":"America\/New_York","id":1446},"short_title":"Street
+        Dogs with Darkbuster","datetime_utc":"2016-12-16T23:00:00","general_admission":true,"datetime_tbd":false},{"links":[],"id":3610511,"stats":{"listing_count":null,"average_price":null,"lowest_price_good_deals":null,"lowest_price":null,"highest_price":null},"title":"Chadwick
+        Stokes","announce_date":"2016-11-17T00:00:00","score":0.410028,"date_tbd":false,"type":"concert","datetime_local":"2016-12-16T19:00:00","visible_until_utc":"2016-12-17T04:00:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"performers":[{"image":null,"primary":true,"colors":null,"images":{},"has_upcoming_events":true,"id":38450,"genres":[{"id":452,"slug":"pop","name":"Pop","primary":false},{"id":456,"slug":"rock","name":"Rock","primary":true},{"id":457,"slug":"alternative","name":"Alternative","primary":false}],"stats":{"event_count":1},"image_license":null,"score":0.398302,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"type":"band","short_name":"Chadwick
+        Stokes","home_venue_id":null,"slug":"chadwick-stokes","divisions":null,"name":"Chadwick
+        Stokes","url":"https:\/\/seatgeek.com\/chadwick-stokes-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/chadwick-stokes-tickets\/boston-massachusetts-paradise-rock-club-2016-12-16-7-pm\/concert\/3610511","created_at":"2016-11-17T00:00:00","venue":{"city":"Boston","name":"Paradise
+        Rock Club","extended_address":"Boston, MA 02215","url":"https:\/\/seatgeek.com\/venues\/paradise-rock-club\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"paradise-rock-club","state":"MA","score":0.5253,"postal_code":"02215","location":{"lat":42.352,"lon":-71.1195},"address":"967
+        Commonwealth Avenue","timezone":"America\/New_York","id":540},"short_title":"Chadwick
+        Stokes","datetime_utc":"2016-12-17T00:00:00","general_admission":true,"datetime_tbd":false},{"links":[],"id":3424668,"stats":{"listing_count":16,"average_price":96.0,"lowest_price_good_deals":84.0,"lowest_price":84.0,"highest_price":109.0},"title":"Blue
+        Man Group - Boston","announce_date":"2016-07-16T00:00:00","score":0.469741,"date_tbd":false,"type":"broadway_tickets_national","datetime_local":"2016-12-16T19:30:00","visible_until_utc":"2016-12-17T04:30:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":3000000,"name":"theater"},{"parent_id":3000000,"id":3030000,"name":"broadway_tickets_national"}],"performers":[{"image":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/blue-man-group-fee240\/5194\/huge.jpg","primary":true,"colors":null,"images":{"huge":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/blue-man-group-fee240\/5194\/huge.jpg"},"has_upcoming_events":true,"id":5194,"stats":{"event_count":831},"image_license":null,"score":0.395813,"taxonomies":[{"parent_id":null,"id":3000000,"name":"theater"},{"parent_id":3000000,"id":3030000,"name":"broadway_tickets_national"}],"type":"theater_broadway_national_tours","short_name":"Blue
+        Man Group","home_venue_id":null,"slug":"blue-man-group","divisions":null,"name":"Blue
+        Man Group","url":"https:\/\/seatgeek.com\/blue-man-group-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/blue-man-group-boston-tickets\/charles-playhouse-2016-12-16-7-30-pm\/broadway\/3424668","created_at":"2016-07-16T00:00:00","venue":{"city":"Boston","name":"Charles
+        Playhouse","extended_address":"Boston, MA 02116","url":"https:\/\/seatgeek.com\/venues\/charles-playhouse\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"charles-playhouse","state":"MA","score":0.424178,"postal_code":"02116","location":{"lat":42.3503,"lon":-71.066},"address":"74
+        Warrenton Street","timezone":"America\/New_York","id":3188},"short_title":"Blue
+        Man Group - Boston","datetime_utc":"2016-12-17T00:30:00","datetime_tbd":false},{"links":[],"id":3507471,"stats":{"listing_count":16,"average_price":217.0,"lowest_price_good_deals":null,"lowest_price":162.0,"highest_price":272.0},"title":"A
+        Christmas Celtic Sojourn with Celtic Sojourn","announce_date":"2016-09-03T00:00:00","score":0.499149,"date_tbd":false,"type":"concert","datetime_local":"2016-12-16T19:30:00","visible_until_utc":"2016-12-17T04:30:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"performers":[{"image":null,"colors":null,"images":{},"has_upcoming_events":true,"id":421,"stats":{"event_count":7},"image_license":null,"score":0.328138,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"type":"band","short_name":"Celtic
+        Sojourn","home_venue_id":null,"slug":"celtic-sojourn","divisions":null,"name":"Celtic
+        Sojourn","url":"https:\/\/seatgeek.com\/celtic-sojourn-tickets","image_attribution":null},{"image":null,"primary":true,"colors":null,"images":{},"has_upcoming_events":true,"id":295297,"genres":[{"id":457,"slug":"alternative","name":"Alternative","primary":true}],"stats":{"event_count":7},"image_license":null,"score":0.310959,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"type":"band","short_name":"A
+        Christmas Celtic Sojourn","home_venue_id":null,"slug":"a-christmas-celtic-sojourn","divisions":null,"name":"A
+        Christmas Celtic Sojourn","url":"https:\/\/seatgeek.com\/a-christmas-celtic-sojourn-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/a-christmas-celtic-sojourn-with-celtic-sojourn-tickets\/boston-massachusetts-cutler-majestic-theatre-1-2016-12-16-7-30-pm\/concert\/3507471","created_at":"2016-09-03T00:00:00","venue":{"city":"Boston","name":"Cutler
+        Majestic Theatre","extended_address":"Boston, MA 02116","url":"https:\/\/seatgeek.com\/venues\/cutler-majestic-theatre-1\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"cutler-majestic-theatre-1","state":"MA","score":0.417713,"postal_code":"02116","location":{"lat":42.3516,"lon":-71.0648},"address":"219
+        Tremont Street","timezone":"America\/New_York","id":4046},"short_title":"A
+        Christmas Celtic Sojourn with Celtic Sojourn","datetime_utc":"2016-12-17T00:30:00","datetime_tbd":false},{"links":[],"id":3475717,"stats":{"listing_count":1476,"average_price":70.0,"lowest_price_good_deals":24.0,"lowest_price":24.0,"highest_price":361.0},"title":"Charlotte
+        Hornets at Boston Celtics","announce_date":"2016-08-12T00:00:00","score":0.772348,"date_tbd":false,"type":"nba","datetime_local":"2016-12-16T19:30:00","visible_until_utc":"2016-12-17T04:30:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":1000000,"name":"sports"},{"parent_id":1000000,"id":1030000,"name":"basketball"},{"parent_id":1030000,"id":1030100,"name":"nba"}],"performers":[{"image":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/boston-celtics-4d3c16\/2088\/huge.jpg","primary":true,"colors":{"all":["#008348","#BB9753","#A73832","#FAB383","#061922"],"iconic":"#008348","primary":["#008348","#BB9753"]},"images":{"huge":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/boston-celtics-4d3c16\/2088\/huge.jpg"},"has_upcoming_events":true,"id":2088,"stats":{"event_count":57},"image_license":null,"score":0.74285,"taxonomies":[{"parent_id":null,"id":1000000,"name":"sports"},{"parent_id":1000000,"id":1030000,"name":"basketball"},{"parent_id":1030000,"id":1030100,"name":"nba"}],"type":"nba","short_name":"Celtics","home_venue_id":1544,"slug":"boston-celtics","divisions":[{"display_name":"Eastern
+        Conference","short_name":null,"division_level":1,"display_type":"Conference","taxonomy_id":1030100,"slug":null},{"display_name":"Eastern
+        - Atlantic","short_name":"Atlantic","division_level":2,"display_type":"Division","taxonomy_id":1030100,"slug":"eastern-atlantic"}],"home_team":true,"name":"Boston
+        Celtics","url":"https:\/\/seatgeek.com\/boston-celtics-tickets","image_attribution":"https:\/\/commons.wikimedia.org\/wiki\/Category:2013%E2%80%9314_Boston_Celtics_season#\/media\/File:NBA_-_February_2014_-_Celtics_vs_Spurs_-_TD_Garden_-_2.JPG"},{"image":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/charlotte-hornets-51a32f\/2099\/huge.jpg","colors":{"all":["#1D1160","#008CA8","#A1A1A4"],"iconic":"#1D1160","primary":["#1D1160","#008CA8"]},"images":{"huge":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/charlotte-hornets-51a32f\/2099\/huge.jpg"},"has_upcoming_events":true,"id":2099,"away_team":true,"stats":{"event_count":56},"image_license":null,"score":0.66789,"taxonomies":[{"parent_id":null,"id":1000000,"name":"sports"},{"parent_id":1000000,"id":1030000,"name":"basketball"},{"parent_id":1030000,"id":1030100,"name":"nba"}],"type":"nba","short_name":"Hornets","home_venue_id":112,"slug":"charlotte-hornets","divisions":[{"display_name":"Eastern
+        Conference","short_name":null,"division_level":1,"display_type":"Conference","taxonomy_id":1030100,"slug":null},{"display_name":"Eastern
+        - Southeast","short_name":"Southeast","division_level":2,"display_type":"Division","taxonomy_id":1030100,"slug":"eastern-southeast"}],"name":"Charlotte
+        Hornets","url":"https:\/\/seatgeek.com\/charlotte-hornets-tickets","image_attribution":"https:\/\/c2.staticflickr.com\/6\/5114\/5810515865_4c8f12b291_b.jpg"}],"url":"https:\/\/seatgeek.com\/hornets-at-celtics-tickets\/12-16-2016-boston-massachusetts-td-garden\/nba\/3475717","created_at":"2016-08-12T00:00:00","venue":{"city":"Boston","name":"TD
+        Garden","extended_address":"Boston, MA 02114","url":"https:\/\/seatgeek.com\/venues\/td-garden\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"td-garden","state":"MA","score":0.853082,"postal_code":"02114","location":{"lat":42.3653,"lon":-71.0618},"address":"100
+        Legends Way","timezone":"America\/New_York","id":1544},"short_title":"Hornets
+        at Celtics","datetime_utc":"2016-12-17T00:30:00","datetime_tbd":false},{"links":[],"id":3320360,"stats":{"listing_count":0,"average_price":null,"lowest_price_good_deals":null,"lowest_price":null,"highest_price":null},"title":"Nate
+        Bargatze","announce_date":"2016-05-23T00:00:00","score":0.448441,"date_tbd":false,"type":"comedy","datetime_local":"2016-12-16T19:30:00","visible_until_utc":"2016-12-17T04:30:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":3000000,"name":"theater"},{"parent_id":3000000,"id":3040000,"name":"comedy"}],"performers":[{"image":null,"primary":true,"colors":null,"images":{},"has_upcoming_events":true,"id":20947,"stats":{"event_count":11},"image_license":null,"score":0.461686,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"type":"band","short_name":"Nate
+        Bargatze","home_venue_id":null,"slug":"nate-bargatze","divisions":null,"name":"Nate
+        Bargatze","url":"https:\/\/seatgeek.com\/nate-bargatze-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/nate-bargatze-tickets\/comedy\/2016-12-16-7-30-pm\/3320360","created_at":"2016-05-23T00:00:00","venue":{"city":"Boston","name":"Laugh
+        Boston","extended_address":"Boston, MA 02210","url":"https:\/\/seatgeek.com\/venues\/laugh-boston\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"laugh-boston","state":"MA","score":0.329042,"postal_code":"02210","location":{"lat":42.35,"lon":-71.04},"address":"425
+        Summer St","timezone":"America\/New_York","id":57227},"short_title":"Nate
+        Bargatze","datetime_utc":"2016-12-17T00:30:00","general_admission":true,"datetime_tbd":false},{"links":[],"id":3424887,"stats":{"listing_count":66,"average_price":73.0,"lowest_price_good_deals":69.0,"lowest_price":69.0,"highest_price":867.0},"title":"The
+        Nutcracker - Boston","announce_date":"2016-07-16T00:00:00","score":0.555512,"date_tbd":false,"type":"dance_performance_tour","datetime_local":"2016-12-16T19:30:00","visible_until_utc":"2016-12-17T04:30:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":3000000,"name":"theater"},{"parent_id":3000000,"id":3060000,"name":"dance_performance_tour"}],"performers":[{"image":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/the-nutcracker-87d3ec\/7746\/huge.jpg","primary":true,"colors":null,"images":{"huge":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/the-nutcracker-87d3ec\/7746\/huge.jpg"},"has_upcoming_events":true,"id":7746,"stats":{"event_count":809},"image_license":null,"score":0.465398,"taxonomies":[{"parent_id":null,"id":3000000,"name":"theater"},{"parent_id":3000000,"id":3060000,"name":"dance_performance_tour"}],"type":"theater_dance_performance_tour","short_name":"The
+        Nutcracker","home_venue_id":null,"slug":"the-nutcracker","divisions":null,"name":"The
+        Nutcracker","url":"https:\/\/seatgeek.com\/the-nutcracker-tickets","image_attribution":null},{"image":null,"colors":null,"images":{},"has_upcoming_events":true,"id":337886,"stats":{"event_count":248},"image_license":null,"score":0.504446,"taxonomies":[{"parent_id":null,"id":3000000,"name":"theater"},{"parent_id":3000000,"id":3050000,"name":"family"}],"type":"theater_family","short_name":"Nutcracker","home_venue_id":null,"slug":"nutcracker-1","divisions":null,"name":"Nutcracker","url":"https:\/\/seatgeek.com\/nutcracker-1-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/the-nutcracker-boston-tickets\/dance\/2016-12-16-7-30-pm\/3424887","created_at":"2016-07-16T00:00:00","venue":{"city":"Boston","name":"Boston
+        Opera House","extended_address":"Boston, MA 02111","url":"https:\/\/seatgeek.com\/venues\/boston-opera-house\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"boston-opera-house","state":"MA","score":0.62034,"postal_code":"02111","location":{"lat":42.3586,"lon":-71.0567},"address":"539
+        Washington Street","timezone":"America\/New_York","id":2501},"short_title":"The
+        Nutcracker - Boston","datetime_utc":"2016-12-17T00:30:00","datetime_tbd":false},{"links":[],"id":3597291,"stats":{"listing_count":4,"average_price":61.0,"lowest_price_good_deals":61.0,"lowest_price":61.0,"highest_price":61.0},"title":"The
+        Dan Band","announce_date":"2016-11-10T00:00:00","score":0.449678,"date_tbd":false,"type":"concert","datetime_local":"2016-12-16T19:30:00","visible_until_utc":"2016-12-17T04:30:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"performers":[{"image":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/the-dan-band-a6eeba\/1792\/huge.jpg","primary":true,"colors":null,"images":{"huge":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/the-dan-band-a6eeba\/1792\/huge.jpg"},"has_upcoming_events":true,"id":1792,"genres":[{"id":452,"slug":"pop","name":"Pop","primary":false},{"id":456,"slug":"rock","name":"Rock","primary":true}],"stats":{"event_count":3},"image_license":null,"score":0.352217,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"type":"band","short_name":"The
+        Dan Band","home_venue_id":null,"slug":"the-dan-band","divisions":null,"name":"The
+        Dan Band","url":"https:\/\/seatgeek.com\/the-dan-band-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/the-dan-band-tickets\/boston-massachusetts-wilbur-theatre-2016-12-16-7-30-pm\/concert\/3597291","created_at":"2016-11-10T00:00:00","venue":{"city":"Boston","name":"Wilbur
+        Theatre","extended_address":"Boston, MA 02116","url":"https:\/\/seatgeek.com\/venues\/wilbur-theatre\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"wilbur-theatre","state":"MA","score":0.586352,"postal_code":"02116","location":{"lat":42.3508,"lon":-71.0648},"address":"246
+        Tremont Street","timezone":"America\/New_York","id":1326},"short_title":"The
+        Dan Band","datetime_utc":"2016-12-17T00:30:00","datetime_tbd":false},{"links":[],"id":3549380,"stats":{"listing_count":0,"average_price":null,"lowest_price_good_deals":null,"lowest_price":null,"highest_price":null},"title":"Kurt
+        Elling","announce_date":"2016-10-06T00:00:00","score":0.418232,"date_tbd":false,"type":"concert","datetime_local":"2016-12-16T20:00:00","visible_until_utc":"2016-12-17T05:00:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"performers":[{"image":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/kurt-elling-a5fb60\/1075\/huge.jpg","primary":true,"colors":null,"images":{"huge":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/kurt-elling-a5fb60\/1075\/huge.jpg"},"has_upcoming_events":true,"id":1075,"genres":[{"id":465,"slug":"blues","name":"Blues","primary":false},{"id":468,"slug":"jazz","name":"Jazz","primary":true}],"stats":{"event_count":20},"image_license":null,"score":0.430922,"taxonomies":[{"parent_id":null,"id":2000000,"name":"concert"}],"type":"band","short_name":"Kurt
+        Elling","home_venue_id":null,"slug":"kurt-elling","divisions":null,"name":"Kurt
+        Elling","url":"https:\/\/seatgeek.com\/kurt-elling-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/kurt-elling-tickets\/boston-massachusetts-scullers-jazz-club-1-2016-12-16-8-pm\/concert\/3549380","created_at":"2016-10-06T00:00:00","venue":{"city":"Boston","name":"Scullers
+        Jazz Club","extended_address":"Boston, MA 02134","url":"https:\/\/seatgeek.com\/venues\/scullers-jazz-club-1\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"scullers-jazz-club-1","state":"MA","score":0.356909,"postal_code":"02134","location":{"lat":42.3602,"lon":-71.1181},"address":"400
+        Soldiers Field Road","timezone":"America\/New_York","id":1826},"short_title":"Kurt
+        Elling","datetime_utc":"2016-12-17T01:00:00","general_admission":true,"datetime_tbd":false},{"links":[],"id":3630492,"stats":{"listing_count":0,"average_price":null,"lowest_price_good_deals":null,"lowest_price":null,"highest_price":null},"title":"Shear
+        Madness - Boston","announce_date":"2016-11-24T00:00:00","score":0.320803,"date_tbd":false,"type":"broadway_tickets_national","datetime_local":"2016-12-16T20:00:00","visible_until_utc":"2016-12-17T05:00:00","time_tbd":false,"taxonomies":[{"parent_id":null,"id":3000000,"name":"theater"},{"parent_id":3000000,"id":3030000,"name":"broadway_tickets_national"}],"performers":[{"image":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/shear-madness-2612d9\/11748\/huge.jpg","primary":true,"colors":null,"images":{"huge":"https:\/\/chairnerd.global.ssl.fastly.net\/images\/performers-landscape\/shear-madness-2612d9\/11748\/huge.jpg"},"has_upcoming_events":true,"id":11748,"stats":{"event_count":246},"image_license":null,"score":0.343276,"taxonomies":[{"parent_id":null,"id":3000000,"name":"theater"},{"parent_id":3000000,"id":3030000,"name":"broadway_tickets_national"}],"type":"theater_broadway_national_tours","short_name":"Shear
+        Madness","home_venue_id":null,"slug":"shear-madness","divisions":null,"name":"Shear
+        Madness","url":"https:\/\/seatgeek.com\/shear-madness-tickets","image_attribution":null}],"url":"https:\/\/seatgeek.com\/shear-madness-boston-tickets\/charles-playhouse-second-stage-2016-12-16-8-pm\/broadway\/3630492","created_at":"2016-11-24T00:00:00","venue":{"city":"Boston","name":"Charles
+        Playhouse Second Stage","extended_address":"Boston, MA 02116","url":"https:\/\/seatgeek.com\/venues\/charles-playhouse-second-stage\/tickets","country":"US","display_location":"Boston,
+        MA","links":[],"slug":"charles-playhouse-second-stage","state":"MA","score":0.0,"postal_code":"02116","location":{"lat":42.35,"lon":-71.066},"address":"74
+        Warrenton Street","timezone":"America\/New_York","id":51387},"short_title":"Shear
+        Madness - Boston","datetime_utc":"2016-12-17T01:00:00","datetime_tbd":false}]}'
+    http_version: 
+  recorded_at: Fri, 16 Dec 2016 16:49:24 GMT
+recorded_with: VCR 3.0.3

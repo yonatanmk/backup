@@ -1,0 +1,17 @@
+<div class="small-6 small-offset-3 columns">
+
+  <h2>New York Times News Articles</h1>
+  <% @news.articles.each do |article|%>
+    <div class="callout primary">
+      <p style="text-align: right">
+        <%=article.type.capitalize%>
+      </p>
+      <h3><a href=<%=article.url%>><%=article.headline%></a></h3>
+      <div>
+        <p>
+          <%=article.lead_paragraph%>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

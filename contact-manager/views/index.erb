@@ -1,0 +1,11 @@
+<h1>Contacts</h1>
+
+<ul>
+  <% @contacts.each do |contact| %>
+    <li><a href="/contacts/<%= contact.id %>"><%= contact.name %> - <%= contact.phone_number %></a></li>
+  <% end %>
+</ul>
+<p><a href='/contacts'>Pages</a></p>
+<p><a href='/add'>Add</a></p>
+<p><a href='/delete'>Delete</a></p>
+<p><a href='/search'>Search</a></p>

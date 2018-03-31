@@ -1,0 +1,33 @@
+body {
+  font-size: 0px;
+}
+
+body * {
+  margin: 0px;
+  border: 0px;
+}
+
+.red {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.green {
+  background-color: green;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.blue {
+  background-color: blue;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}

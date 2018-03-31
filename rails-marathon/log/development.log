@@ -1,0 +1,2016 @@
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/bin/rake:22)
+  [1m[35m (156.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "gallery-reviews_test"[0m
+  [1m[35m (2268.8ms)[0m  [1m[35mCREATE DATABASE "gallery-reviews_test" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from require at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/bin/rake:22)
+  [1m[35m (347.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5170893669298709835);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGallery (20170112205908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.9ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" serial primary key, "name" character varying NOT NULL, "location" character varying NOT NULL, "description" text)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112205908"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-01-12 21:01:42 UTC], ["updated_at", 2017-01-12 21:01:42 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(5170893669298709835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'galleries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5170893669298709835);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePaintings (20170112212628)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5170893669298709835)[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5170893669298709835);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePaintings (20170112212628)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (131.2ms)[0m  [1m[35mCREATE TABLE "paintings" ("id" serial primary key, "title" character varying NOT NULL, "artist" character varying NOT NULL, "gallery_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_paintings_on_gallery_id" ON "paintings"  ("gallery_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112212628"]]
+  [1m[35m (11.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (26.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5170893669298709835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'galleries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'paintings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for ::1 at 2017-01-12 16:49:23 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  [1m[36mActiveRecord::SchemaMigration Load (10.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/railties-5.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/railties-5.0.0/lib/rails/templates/rails/welcome/index.html.erb (6.9ms)
+Completed 200 OK in 59ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 16:49:30 -0500
+  
+LoadError (Unable to autoload constant GalleriesController, expected /Users/yehonatanmeschede-krasa/challenges/rails-marathon/app/controllers/concerns/galleries_controller.rb to define it):
+  
+activesupport (5.0.0) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+activesupport (5.0.0) lib/active_support/dependencies.rb:203:in `const_missing'
+activesupport (5.0.0) lib/active_support/inflector/methods.rb:268:in `const_get'
+activesupport (5.0.0) lib/active_support/inflector/methods.rb:268:in `block in constantize'
+activesupport (5.0.0) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.0) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.0) lib/active_support/inflector/methods.rb:266:in `constantize'
+activesupport (5.0.0) lib/active_support/dependencies.rb:583:in `get'
+activesupport (5.0.0) lib/active_support/dependencies.rb:614:in `constantize'
+actionpack (5.0.0) lib/action_dispatch/http/request.rb:93:in `controller_class'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (96.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (178.9ms)
+Started GET "/galleries" for ::1 at 2017-01-12 16:49:54 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  Rendered galleries/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 491ms (Views: 479.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2017-01-12 16:49:55 -0500
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2017-01-12 16:49:55 -0500
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2017-01-12 16:49:55 -0500
+Started GET "/galleries" for ::1 at 2017-01-12 16:50:39 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (2.8ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+Started GET "/galleries" for ::1 at 2017-01-12 16:52:16 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.9ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 45.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 16:52:18 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (2.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 2.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "location") VALUES ($1, $2) RETURNING "id"[0m  [["name", "A gallery"], ["location", "Boston"]]
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "location") VALUES ($1, $2) RETURNING "id"[0m  [["name", "The Met"], ["location", "New York City"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "location", "description") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "The Louvre"], ["location", "Paris"], ["description", "Fancy French Art Gallery"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendered galleries/index.html.erb within layouts/application (316954.0ms)
+Completed   in 316962ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 16:56:09 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  [1m[36mActiveRecord::SchemaMigration Load (7.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (1.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 384ms (Views: 356.2ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 16:57:06 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 16:57:08 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 16:57:39 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+Started GET "/galleries" for ::1 at 2017-01-12 16:58:07 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (3.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 24ms (Views: 18.9ms | ActiveRecord: 3.3ms)
+
+
+  Rendered galleries/index.html.erb within layouts/application (77784.1ms)
+Completed   in 77791ms (ActiveRecord: 0.5ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/yehonatanmeschede-krasa/challenges/rails-marathon/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (128.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "gallery-reviews_development"[0m
+  [1m[35m (124.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "gallery-reviews_test"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/bin/rake:22)
+  [1m[35m (304.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5170893669298709835);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGallery (20170112205908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (35.7ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" serial primary key, "name" character varying NOT NULL, "location" character varying NOT NULL, "description" text)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112205908"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePaintings (20170112212628)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "paintings" ("id" serial primary key, "title" character varying NOT NULL, "artist" character varying NOT NULL, "gallery_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_paintings_on_gallery_id" ON "paintings"  ("gallery_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112212628"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToGalleries (20170112220123)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.7ms)[0m  [1m[35mALTER TABLE "galleries" DROP "location"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "galleries" ADD "city" character varying NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "galleries" ADD "state" character varying NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "galleries" ADD "zip" character varying NOT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112220123"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-01-12 22:04:51 UTC], ["updated_at", 2017-01-12 22:04:51 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5170893669298709835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'galleries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'paintings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Louvre"], ["description", "Fancy French Art Gallery"], ["city", "Paris"], ["state", "Alsace"], ["zip", "33847"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Met"], ["city", "New York City"], ["state", "NY"], ["zip", "66847"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "A Gallery"], ["city", "Boston"], ["state", "MA"], ["zip", "00567"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/galleries" for ::1 at 2017-01-12 17:16:20 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (3.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 294ms (Views: 267.8ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 17:16:27 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+Started GET "/galleries/1" for ::1 at 2017-01-12 17:17:27 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+Started GET "/galleries" for ::1 at 2017-01-12 17:19:35 -0500
+Completed 500 Internal Server Error in 132054ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/concerns/galleries_controller.rb:9:in `show'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (80.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (98.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (181.1ms)
+Completed   in 272817ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 17:21:07 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  [1m[36mActiveRecord::SchemaMigration Load (4.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (2.8ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 354ms (Views: 266.1ms | ActiveRecord: 63.3ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 17:21:18 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/galleries/2" for ::1 at 2017-01-12 17:21:22 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:31:18 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (105.5ms)
+  Rendered galleries/new.html.erb within layouts/application (108.0ms)
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 6.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `zipcode' for #<Gallery:0x007fd2d719e838>):
+    22:   <%= f.label :state %>
+    23:   <%= f.text_field :state %><br>
+    24:   <%= f.label :zipcode %>
+    25:   <%= f.text_field :zipcode %><br>
+    26:   <%= f.label :description %><br>
+    27:   <%= f.text_area :description, size: "60x12" %><br>
+    28:   <%= f.submit "Add New Gallery" %>
+  
+app/views/galleries/_form.html.erb:25:in `block in _app_views_galleries__form_html_erb___2900307054696718918_70271764298060'
+app/views/galleries/_form.html.erb:17:in `_app_views_galleries__form_html_erb___2900307054696718918_70271764298060'
+app/views/galleries/new.html.erb:3:in `_app_views_galleries_new_html_erb__1600620922311142005_70271761149260'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.2ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.9ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (60.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (134.7ms)
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:31:59 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (12.5ms)
+  Rendered galleries/new.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `zipcode' for #<Gallery:0x007fd2d7290b10>):
+    22:   <%= f.label :state %>
+    23:   <%= f.text_field :state %><br>
+    24:   <%= f.label :zipcode, 'Zipcode' %>
+    25:   <%= f.text_field :zipcode %><br>
+    26:   <%= f.label :description %><br>
+    27:   <%= f.text_area :description, size: "60x12" %><br>
+    28:   <%= f.submit "Add New Gallery" %>
+  
+app/views/galleries/_form.html.erb:25:in `block in _app_views_galleries__form_html_erb___2900307054696718918_70271739503120'
+app/views/galleries/_form.html.erb:17:in `_app_views_galleries__form_html_erb___2900307054696718918_70271739503120'
+app/views/galleries/new.html.erb:3:in `_app_views_galleries_new_html_erb__1600620922311142005_70271735320360'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.7ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (116.2ms)
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:32:13 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (8.0ms)
+  Rendered galleries/new.html.erb within layouts/application (14.8ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"galleries"} missing required keys: [:id]):
+    2: 
+    3: <%= render 'form', gallery: @gallery %>
+    4: 
+    5: <%= link_to 'Back', gallery_path %>
+  
+app/views/galleries/new.html.erb:5:in `_app_views_galleries_new_html_erb__1600620922311142005_70271741392180'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (77.6ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (48.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (111.6ms)
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:33:07 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.9ms)
+  Rendered galleries/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 78ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/galleries" for ::1 at 2017-01-12 17:33:30 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RQwWhquTmcVFUqThXkAXk75BKCAigj1C1mZEncB8w0lRhXhJOQcLkNZep+iKoYwYF4z0qgVRowVrFnmFnmEEYQ==", "gallery"=>{"name"=>"bleep blorp", "city"=>"bleep blorp", "state"=>"bleep blorp", "zip"=>"bleep blorp", "description"=>"bleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorp"}, "commit"=>"Add New Gallery"}
+Completed 500 Internal Server Error in 147259ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/concerns/galleries_controller.rb:17:in `create'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.0ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (64.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (149.3ms)
+Started GET "/galleries" for ::1 at 2017-01-12 17:36:05 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 33ms (Views: 22.4ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:36:13 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.8ms)
+  Rendered galleries/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/galleries" for ::1 at 2017-01-12 17:36:27 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"25DZjsBKVUySVnWfF0W8tBC1YH1BdKTdutOCyQuMp1PPGbdBUt7HGQFadpbDpCc/uXi892anOpoHo7/RVZFgew==", "gallery"=>{"name"=>"bleep blorp", "city"=>"bleep blorp", "state"=>"bleep blorp", "zip"=>"bleep blorp", "description"=>"blbleep blorp\r\nbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorp"}, "commit"=>"Add New Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bleep blorp"], ["description", "blbleep blorp\r\nbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorpbleep blorp"], ["city", "bleep blorp"], ["state", "bleep blorp"], ["zip", "bleep blorp"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/4
+Completed 302 Found in 12ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/galleries/4" for ::1 at 2017-01-12 17:36:27 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 25ms (Views: 19.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 17:36:35 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (1.2ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:36:56 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.4ms)
+  Rendered galleries/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/galleries" for ::1 at 2017-01-12 17:37:07 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"86h8gss107Oxn5/Nq5PrgEIxSQdYlKse0WhadgcqVDvnIRJNWaFB5iKTnMR/cnAL6/yVjX9HNVlsGGduWTeTEw==", "gallery"=>{"name"=>"7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %>", "city"=>"7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %", "state"=>"7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %", "zip"=>"7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %", "description"=>"7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %"}, "commit"=>"Add New Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %>"], ["description", "7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %"], ["city", "7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %"], ["state", "7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %"], ["zip", "7<% if flash[:notice] %>   <h2><%= flash.notice %></h2> <% end %"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/5
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/galleries/5" for ::1 at 2017-01-12 17:37:07 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 17:37:09 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (1.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 33ms (Views: 29.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/galleries/5" for ::1 at 2017-01-12 17:37:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 17:37:19 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 44ms (Views: 41.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:52:11 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (3.6ms)
+  Rendered galleries/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 55ms (Views: 37.3ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/galleries" for ::1 at 2017-01-12 17:52:43 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GQ4GOIaxgcDk8GGKk22WMQrw/ZsYrqJ05uq7PpiCpA4Nh2j3FCUTlXf8YoNHjA26oz0hET99PDNbmoYmxp9jJg==", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/6
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/galleries/6" for ::1 at 2017-01-12 17:52:43 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:54:56 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.4ms)
+  Rendered galleries/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/galleries" for ::1 at 2017-01-12 17:55:02 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yAWS4gjIcovYZXQJeNb4jpJjHL1ArOaRgfXfQf7jGDncjPwtmlzg3ktpdwCsN2MFO67AN2d/eNY8heJZoP7fEQ==", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.7ms)
+  Rendered galleries/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 28ms (Views: 22.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/galleries/new" for ::1 at 2017-01-12 17:57:31 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (3.2ms)
+  Rendered galleries/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 40ms (Views: 25.7ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/galleries" for ::1 at 2017-01-12 17:57:33 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N0RK8USn4sY2A/J8y+gnIWxR0VXdaHCYf+7fFFaMtfojzSQ+1jNwk6UP8XUfCbyqxZwN3/q77t/CnuIMCJFy0g==", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (13.5ms)
+  Rendered galleries/new.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 39ms (Views: 33.8ms | ActiveRecord: 0.4ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from load at /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5170893669298709835);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddYearToPaintings (20170112231146)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mALTER TABLE "paintings" ADD "year" character varying NOT NULL[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112231146"]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (8.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5170893669298709835)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'galleries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'paintings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/galleries" for ::1 at 2017-01-12 18:13:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 49ms (Views: 37.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:13:51 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 98ms (Views: 88.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:16:28 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (6.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 124ms (Views: 20.0ms | ActiveRecord: 12.4ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "bleep"], ["artist", "blorp"], ["created_at", 2017-01-12 23:17:40 UTC], ["updated_at", 2017-01-12 23:17:40 UTC], ["year", "4756"]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" ORDER BY "galleries"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "bleep"], ["artist", "blorp"], ["gallery_id", 1], ["created_at", 2017-01-12 23:17:58 UTC], ["updated_at", 2017-01-12 23:17:58 UTC], ["year", "4756"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT  "paintings".* FROM "paintings" ORDER BY "paintings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:18:07 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.5ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 53ms (Views: 27.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:18:09 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:18:12 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.5ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings"[0m
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:19:06 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.6ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (179219.9ms)
+Completed 500 Internal Server Error in 179228ms (ActiveRecord: 0.8ms)
+
+
+  
+SystemExit (exit):
+  
+app/views/galleries/show.html.erb:15:in `block in _app_views_galleries_show_html_erb__417938287165195445_70271763760560'
+app/views/galleries/show.html.erb:14:in `_app_views_galleries_show_html_erb__417938287165195445_70271763760560'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (67.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (166.8ms)
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:22:12 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.5ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:22:26 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (4.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (1.2ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:22:32 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (1.1ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (5.1ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 26ms (Views: 16.8ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:25:23 -0500
+  Rendered galleries/show.html.erb within layouts/application (203669.2ms)
+  Rendered galleries/show.html.erb within layouts/application (188964.3ms)
+Completed   in 203677ms (ActiveRecord: 0.8ms)
+
+
+Completed   in 188978ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:25:46 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (3.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (1.0ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (23.7ms)
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 13.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `author' for #<Painting:0x007fb685082d78>):
+    12: <h3><u>Paintings</u></h3>
+    13: <ul>
+    14:   <% @paintings.each do |painting| %>
+    15:     <li><%= "#{painting.title}#{painting.author}#{painting.year}" %></li>
+    16:   <% end %>
+    17: </ul>
+    18: 
+  
+app/views/galleries/show.html.erb:15:in `block in _app_views_galleries_show_html_erb___3211719361805565968_70210946503240'
+app/views/galleries/show.html.erb:14:in `_app_views_galleries_show_html_erb___3211719361805565968_70210946503240'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (81.4ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (88.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (168.0ms)
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:26:03 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.5ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 248ms (Views: 244.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:29:10 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 18:35:24 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 26ms (Views: 17.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/galleries/new" for ::1 at 2017-01-12 18:35:27 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (74.7ms)
+  Rendered galleries/new.html.erb within layouts/application (77.7ms)
+Completed 200 OK in 108ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/galleries" for ::1 at 2017-01-12 18:35:29 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R/4LQ99LqHTYm65fL1hW6MQIeRrxgjCdg9fIAGmVyqZTd2WMTd86IUuXrVb7uc1jbcWlkNZRrto+p/UYN4gNjg==", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.0ms)
+  Rendered galleries/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 29ms (Views: 22.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/galleries" for ::1 at 2017-01-12 18:35:55 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+GYmEVlspKynHBQ4gaIoFQc5EiYGTDfKb+zkILMR3OLs70jey/g2+TQQFzFVQ7OervTOrCGfqY3SnNk47Qwbyg==", "gallery"=>{"name"=>"4hetrmt3whaetng", "city"=>"rtwhre", "state"=>"4hetrmt3whaetng", "zip"=>"66666", "description"=>"4hetrmt3whaetng4hetrmt3whaetng4hetrmt3whaetng4hetrmt3whaetng4hetrmt3whaetng"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "4hetrmt3whaetng"], ["description", "4hetrmt3whaetng4hetrmt3whaetng4hetrmt3whaetng4hetrmt3whaetng4hetrmt3whaetng"], ["city", "rtwhre"], ["state", "4hetrmt3whaetng"], ["zip", "66666"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/7
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/galleries/7" for ::1 at 2017-01-12 18:35:55 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 7]]
+  Rendered galleries/show.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"paintings", :id=>"7"} missing required keys: [:gallery_id]):
+    16:   <% end %>
+    17: </ul>
+    18: 
+    19: <% link_to 'Add Painting', new_gallery_painting_path%>
+    20: 
+    21: <%= link_to 'Back', galleries_path %>
+  
+app/views/galleries/show.html.erb:19:in `_app_views_galleries_show_html_erb___3211719361805565968_70210948856080'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (65.6ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (120.7ms)
+Started GET "/galleries/7" for ::1 at 2017-01-12 18:38:59 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 7]]
+  Rendered galleries/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 6.1ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"paintings", :id=>"7"} missing required keys: [:gallery_id]):
+    16:   <% end %>
+    17: </ul>
+    18: 
+    19: <% link_to 'Add Painting', new_gallery_painting_path%>
+    20: 
+    21: <%= link_to 'Back', galleries_path %>
+  
+app/views/galleries/show.html.erb:19:in `_app_views_galleries_show_html_erb___3211719361805565968_70210949379960'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.6ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (134.8ms)
+Started GET "/galleries/7" for ::1 at 2017-01-12 18:39:35 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 7]]
+  Rendered galleries/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/galleries/7" for ::1 at 2017-01-12 18:40:07 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 7]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 18:40:12 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.8ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:40:13 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 86ms (Views: 79.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:40:25 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (1.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 25ms (Views: 18.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:40:35 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (151.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 168ms (Views: 12.5ms | ActiveRecord: 151.9ms)
+
+
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:40:36 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (0.5ms)
+  Rendered paintings/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 86ms (Views: 78.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:40:55 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (0.4ms)
+  Rendered paintings/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:41:50 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (3.7ms)
+  Rendered paintings/new.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    2:   <h2><%= flash.notice %></h2>
+    3: <% end %>
+    4: 
+    5: <% if gallery.errors.any? %>
+    6:   <div id="error_explanation">
+    7:     <h3><%= pluralize(gallery.errors.count, "error") %> prohibited this gallery from being saved:</h3>
+    8: 
+  
+app/views/paintings/_form.html.erb:5:in `_app_views_paintings__form_html_erb___174700107893002249_70210988175060'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210926169780'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.0ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (47.1ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (111.1ms)
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:42:44 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (3.5ms)
+  Rendered paintings/new.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    2:   <h2><%= flash.notice %></h2>
+    3: <% end %>
+    4: 
+    5: <% if gallery.errors.any? %>
+    6:   <div id="error_explanation">
+    7:     <h3><%= pluralize(gallery.errors.count, "error") %> prohibited this gallery from being saved:</h3>
+    8: 
+  
+app/views/paintings/_form.html.erb:5:in `_app_views_paintings__form_html_erb___174700107893002249_70210989631580'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210916600620'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.2ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (119.3ms)
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:43:41 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (29.0ms)
+  Rendered paintings/new.html.erb within layouts/application (31.2ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `paintings_path' for #<#<Class:0x007fb682b08fe8>:0x007fb68955d420>):
+    14:   </div>
+    15: <% end %>
+    16: 
+    17: <%= form_for [gallery, painting] do |f| %>
+    18:   <%= f.label :name %>
+    19:   <%= f.text_field :name %><br>
+    20:   <%= f.label :city %>
+  
+app/views/paintings/_form.html.erb:17:in `_app_views_paintings__form_html_erb___174700107893002249_70210982357720'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210982440720'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.5ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (49.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (108.0ms)
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:44:17 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (106290.2ms)
+  Rendered paintings/new.html.erb within layouts/application (106293.2ms)
+Completed 500 Internal Server Error in 106298ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+app/views/paintings/_form.html.erb:17:in `_app_views_paintings__form_html_erb___174700107893002249_70210927525700'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210918246060'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.8ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (62.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (135.6ms)
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:46:07 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (7625.7ms)
+  Rendered paintings/new.html.erb within layouts/application (7627.5ms)
+Completed 500 Internal Server Error in 7660ms (ActiveRecord: 7.8ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"paintings", :gallery_id=>nil} missing required keys: [:gallery_id]):
+    16: 
+    17: <% binding.pry %>
+    18: 
+    19: <%= form_for [gallery, painting] do |f| %>
+    20:   <%= f.label :name %>
+    21:   <%= f.text_field :name %><br>
+    22:   <%= f.label :city %>
+  
+app/views/paintings/_form.html.erb:19:in `_app_views_paintings__form_html_erb___174700107893002249_70210993086040'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210993100220'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.7ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (56.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (124.4ms)
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:46:46 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  Rendering paintings/new.html.erb within layouts/application
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:47:33 -0500
+  Rendered paintings/_form.html.erb (70094.0ms)
+  Rendered paintings/new.html.erb within layouts/application (70095.9ms)
+Completed 500 Internal Server Error in 70101ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"paintings", :gallery_id=>nil} missing required keys: [:gallery_id]):
+    16: 
+    17: <%= form_for [gallery, painting] do |f| %>
+    18:   <%= f.label :name %>
+    19:   <%= f.text_field :name %><br>
+    20:   <%= f.label :city %>
+    21:   <%= f.text_field :city %><br>
+    22:   <%= f.label :state %>
+  
+app/views/paintings/_form.html.erb:19:in `_app_views_paintings__form_html_erb___174700107893002249_70210925583840'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210924345660'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.5ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.0ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (51.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (116.6ms)
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 11ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gallery with 'id'=):
+  
+app/controllers/concerns/paintings_controller.rb:7:in `new'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.7ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (119.1ms)
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:48:20 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:48:42 -0500
+  [1m[36mGallery Load (1.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 28860ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Gallery with 'id'=):
+  
+app/controllers/concerns/paintings_controller.rb:8:in `new'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.1ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from call at /Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb:22)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (123.1ms)
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:48:49 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (4.8ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (8.1ms)
+  Rendered paintings/new.html.erb within layouts/application (9.7ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.5ms)
+
+
+  
+  Rendered paintings/_form.html.erb (6.4ms)
+  Rendered paintings/new.html.erb within layouts/application (11.4ms)
+ActionView::Template::Error (undefined method `name' for #<Painting:0x007fb685bebd18>):
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 4.8ms)
+
+
+    16: 
+  
+    17: <%= form_for [gallery, painting] do |f| %>
+ActionView::Template::Error (undefined method `name' for #<Painting:0x007fb68553f500>):
+    18:   <%= f.label :name %>
+    16: 
+    19:   <%= f.text_field :name %><br>
+    17: <%= form_for [gallery, painting] do |f| %>
+    20:   <%= f.label :city %>
+    18:   <%= f.label :name %>
+    21:   <%= f.text_field :city %><br>
+    19:   <%= f.text_field :name %><br>
+    22:   <%= f.label :state %>
+    20:   <%= f.label :city %>
+  
+    21:   <%= f.text_field :city %><br>
+app/views/paintings/_form.html.erb:19:in `block in _app_views_paintings__form_html_erb___174700107893002249_70210948787920'
+    22:   <%= f.label :state %>
+app/views/paintings/_form.html.erb:17:in `_app_views_paintings__form_html_erb___174700107893002249_70210948787920'
+  
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210918463040'
+app/views/paintings/_form.html.erb:19:in `block in _app_views_paintings__form_html_erb___174700107893002249_70210948787920'
+app/views/paintings/_form.html.erb:17:in `_app_views_paintings__form_html_erb___174700107893002249_70210948787920'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210918463040'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.1ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (39.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (128.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (171.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (116.2ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (102.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.2ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (264.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (241.3ms)
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:48:52 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (11.2ms)
+  Rendered paintings/new.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Painting:0x007fb68a18c390>):
+    16: 
+    17: <%= form_for [gallery, painting] do |f| %>
+    18:   <%= f.label :name %>
+    19:   <%= f.text_field :name %><br>
+    20:   <%= f.label :city %>
+    21:   <%= f.text_field :city %><br>
+    22:   <%= f.label :state %>
+  
+app/views/paintings/_form.html.erb:19:in `block in _app_views_paintings__form_html_erb___174700107893002249_70210989241840'
+app/views/paintings/_form.html.erb:17:in `_app_views_paintings__form_html_erb___174700107893002249_70210989241840'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210988959300'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.7ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (50.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (116.9ms)
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:49:25 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (2.1ms)
+  Rendered paintings/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:49:40 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (2.6ms)
+  Rendered paintings/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 31ms (Views: 14.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/galleries/1/paintings" for ::1 at 2017-01-12 18:49:42 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4Fbmi4ESF3QhUCY0lTMFLDLF1wFsiz/AtXuarNe6nOP034hEE4aFIbJcJT1B0p6nmwgLi0tYoYcIC6e0iadbyw==", "painting"=>{"title"=>"qwhet", "artist"=>"4y5ejry", "year"=>""}, "commit"=>"Add Painting", "gallery_id"=>"1"}
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:51:42 -0500
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (22.0ms)
+  Rendered paintings/new.html.erb within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 124618ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `paintings_path' for #<#<Class:0x007fb6822f9f78>:0x007fb6894fc8a0>):
+    14:   </div>
+    15: <% end %>
+    16: 
+    17: <%= form_for [gallery, painting] do |f| %>
+    18:   <%= f.label :title %>
+    19:   <%= f.text_field :title %><br>
+    20:   <%= f.label :artist %>
+  
+app/views/paintings/_form.html.erb:17:in `_app_views_paintings__form_html_erb___174700107893002249_70210969961240'
+app/views/paintings/new.html.erb:3:in `_app_views_paintings_new_html_erb__4377028420273346220_70210919406120'
+app/controllers/concerns/paintings_controller.rb:18:in `create'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (51.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (117.1ms)
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (3.2ms)
+  Rendered paintings/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 46ms (Views: 22.6ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/galleries/1/paintings" for ::1 at 2017-01-12 18:51:52 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SuStqSTuTCEyTnYJx8KNiGNBbFtM5Bz93ynTfdjOp2pebcNmtnredKFCdQATIxYDyoyw0Ws3grpiWe5lhtNgQg==", "painting"=>{"title"=>"t4", "artist"=>"2t43y5", "year"=>"43y54u6t"}, "commit"=>"Add Painting", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "t4"], ["artist", "2t43y5"], ["created_at", 2017-01-12 23:51:52 UTC], ["updated_at", 2017-01-12 23:51:52 UTC], ["year", "43y54u6t"]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::NotNullViolation: ERROR:  null value in column "gallery_id" violates not-null constraint
+DETAIL:  Failing row contains (3, t4, 2t43y5, null, 2017-01-12 23:51:52.324685, 2017-01-12 23:51:52.324685, 43y54u6t).
+: INSERT INTO "paintings" ("title", "artist", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"):
+  
+app/controllers/concerns/paintings_controller.rb:14:in `create'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (58.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (124.3ms)
+Started GET "/galleries/1/paintings" for ::1 at 2017-01-12 18:52:44 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/galleries/1/paintings"):
+  
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb [7 times] (3.1ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (91.9ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (48.8ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (106.4ms)
+Started GET "/galleries/1/paintings" for ::1 at 2017-01-12 18:52:48 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/galleries/1/paintings"):
+  
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/yehonatanmeschede-krasa/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered collection of /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb [7 times] (2.7ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (76.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (51.0ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/yehonatanmeschede-krasa/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (109.0ms)
+Started GET "/galleries/1/" for ::1 at 2017-01-12 18:52:53 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 41ms (Views: 19.9ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:52:54 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (4.1ms)
+  Rendered paintings/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 78ms (Views: 73.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/galleries/1/paintings" for ::1 at 2017-01-12 18:52:57 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2JBvm0rdoJWNslBPsFcOEsG9NsW3VlPoI5LZgqtQa4zMGQFU2EkywB6+U0ZktpWZaHDqT5CFza+e4uSa9U2spA==", "painting"=>{"title"=>"3y5u46", "artist"=>"435u46", "year"=>"5u465i7y"}, "commit"=>"Add Painting", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "3y5u46"], ["artist", "435u46"], ["gallery_id", 1], ["created_at", 2017-01-12 23:53:16 UTC], ["updated_at", 2017-01-12 23:53:16 UTC], ["year", "5u465i7y"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/1
+Completed 302 Found in 18574ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:53:16 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 49ms (Views: 31.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:53:23 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (9.8ms)
+  Rendered paintings/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 81ms (Views: 75.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/galleries/1/paintings" for ::1 at 2017-01-12 18:53:26 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zloWxGTSnTyp/L4ZqUlMNIIB2nmkuhPma1gzT5nfP0Pa03gL9kYPaTrwvRB9qNe/K8wG84NpjaHWKA5Xx8L4aw==", "painting"=>{"title"=>"77", "artist"=>"777", "year"=>"777"}, "commit"=>"Add Painting", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "77"], ["artist", "777"], ["gallery_id", 1], ["created_at", 2017-01-12 23:53:26 UTC], ["updated_at", 2017-01-12 23:53:26 UTC], ["year", "777"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/galleries/1
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:53:26 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (4.5ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 25ms (Views: 16.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/galleries/1/paintings/new" for ::1 at 2017-01-12 18:53:32 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (4.3ms)
+  Rendered paintings/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 69ms (Views: 66.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/galleries/1/paintings" for ::1 at 2017-01-12 18:53:33 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ELBO48Dn281LSutdtEFdTvsRF3iVNOFE0PDTVSBYc0sEOSAsUnNJmNhG6FRgoMbFUtzL8rLnfwNtgO5NfkW0Yw==", "painting"=>{"title"=>"", "artist"=>"", "year"=>""}, "commit"=>"Add Painting", "gallery_id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (4.4ms)
+  Rendered paintings/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 38ms (Views: 33.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/galleries" for ::1 at 2017-01-12 18:53:35 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (4.2ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 131ms (Views: 113.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/galleries/1" for ::1 at 2017-01-12 18:54:01 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.9ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 39ms (Views: 31.4ms | ActiveRecord: 1.3ms)
+
+

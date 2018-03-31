@@ -1,0 +1,2364 @@
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (397.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5544808831685216310);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGallery (20170112205908)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.8ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" serial primary key, "name" character varying NOT NULL, "location" character varying NOT NULL, "description" text)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112205908"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePaintings (20170112212628)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "paintings" ("id" serial primary key, "title" character varying NOT NULL, "artist" character varying NOT NULL, "gallery_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_paintings_on_gallery_id" ON "paintings"  ("gallery_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112212628"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-01-12 21:59:29 UTC], ["updated_at", 2017-01-12 21:59:29 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5544808831685216310)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'galleries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'paintings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (295.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (19.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5544808831685216310);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGallery (20170112205908)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (32.1ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" serial primary key, "name" character varying NOT NULL, "location" character varying NOT NULL, "description" text)[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112205908"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePaintings (20170112212628)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "paintings" ("id" serial primary key, "title" character varying NOT NULL, "artist" character varying NOT NULL, "gallery_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_paintings_on_gallery_id" ON "paintings"  ("gallery_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112212628"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToGalleries (20170112220123)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.8ms)[0m  [1m[35mALTER TABLE "galleries" DROP "location"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "galleries" ADD "city" character varying NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "galleries" ADD "state" character varying NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "galleries" ADD "zip" character varying NOT NULL[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112220123"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (20.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-01-12 22:09:40 UTC], ["updated_at", 2017-01-12 22:09:40 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(5544808831685216310)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'galleries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'paintings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:09:50 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 412ms (Views: 400.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:20:25 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.8ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 195ms (Views: 184.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/14" for 127.0.0.1 at 2017-01-12 17:20:25 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 4.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:24:31 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (1.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 205ms (Views: 183.6ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/21" for 127.0.0.1 at 2017-01-12 17:24:31 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 4.0ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:25:17 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (2.9ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 223ms (Views: 210.4ms | ActiveRecord: 2.9ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:25:17 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/24" for 127.0.0.1 at 2017-01-12 17:25:17 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/28" for 127.0.0.1 at 2017-01-12 17:25:17 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mGallery Load (1.0ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 5.2ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (29.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:38:10 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (81.7ms)
+  Rendered galleries/new.html.erb within layouts/application (85.9ms)
+Completed 200 OK in 396ms (Views: 355.0ms | ActiveRecord: 17.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:38:11 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.0ms)
+  Rendered galleries/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.9ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:38:11 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (5.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 11ms (Views: 4.4ms | ActiveRecord: 5.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:38:11 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.3ms)
+Started GET "/galleries/31" for 127.0.0.1 at 2017-01-12 17:38:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/35" for 127.0.0.1 at 2017-01-12 17:38:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:38:36 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (77.3ms)
+  Rendered galleries/new.html.erb within layouts/application (80.3ms)
+Completed 200 OK in 284ms (Views: 253.4ms | ActiveRecord: 7.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:38:36 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.8ms)
+  Rendered galleries/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (16.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:38:36 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (2.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:38:36 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/38" for 127.0.0.1 at 2017-01-12 17:38:36 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 11ms (Views: 3.7ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/42" for 127.0.0.1 at 2017-01-12 17:38:36 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (15.0ms)
+  Rendered galleries/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 238ms (Views: 181.3ms | ActiveRecord: 31.6ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/43
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+Started GET "/galleries/43" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"43"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 3.8ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.5ms)
+  Rendered galleries/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.6ms)
+  Rendered galleries/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/46" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/50" for 127.0.0.1 at 2017-01-12 17:39:02 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:47:11 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (98.7ms)
+  Rendered galleries/new.html.erb within layouts/application (101.8ms)
+Completed 200 OK in 295ms (Views: 269.9ms | ActiveRecord: 6.6ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:47:11 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (15.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/51
+Completed 302 Found in 39ms (ActiveRecord: 16.3ms)
+Started GET "/galleries/51" for 127.0.0.1 at 2017-01-12 17:47:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mGallery Load (8.8ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 36ms (Views: 4.2ms | ActiveRecord: 9.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:47:11 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.5ms)
+  Rendered galleries/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:47:11 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.9ms)
+  Rendered galleries/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:47:12 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:47:12 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/54" for 127.0.0.1 at 2017-01-12 17:47:12 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"54"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/58" for 127.0.0.1 at 2017-01-12 17:47:12 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"58"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:47:45 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (81.0ms)
+  Rendered galleries/new.html.erb within layouts/application (86.7ms)
+Completed 200 OK in 295ms (Views: 258.5ms | ActiveRecord: 15.3ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:47:46 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/59
+Completed 302 Found in 26ms (ActiveRecord: 10.0ms)
+Started GET "/galleries/59" for 127.0.0.1 at 2017-01-12 17:47:46 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"59"}
+  [1m[36mGallery Load (3.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 4.7ms | ActiveRecord: 3.7ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:47:46 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.7ms)
+  Rendered galleries/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:47:46 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (3.6ms)
+  Rendered galleries/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:47:46 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:47:46 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/62" for 127.0.0.1 at 2017-01-12 17:47:46 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"62"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/66" for 127.0.0.1 at 2017-01-12 17:47:46 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"66"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:49:20 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (69.8ms)
+  Rendered galleries/new.html.erb within layouts/application (74.2ms)
+Completed 200 OK in 301ms (Views: 257.5ms | ActiveRecord: 15.4ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:49:20 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (27.8ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/67
+Completed 302 Found in 40ms (ActiveRecord: 28.3ms)
+Started GET "/galleries/67" for 127.0.0.1 at 2017-01-12 17:49:20 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[36mGallery Load (2.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 5.0ms | ActiveRecord: 2.9ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:49:21 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.7ms)
+  Rendered galleries/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:49:21 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.8ms)
+  Rendered galleries/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:49:21 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:49:21 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/70" for 127.0.0.1 at 2017-01-12 17:49:21 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"70"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/74" for 127.0.0.1 at 2017-01-12 17:49:21 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (63.7ms)
+  Rendered galleries/new.html.erb within layouts/application (68.0ms)
+Completed 200 OK in 266ms (Views: 230.9ms | ActiveRecord: 14.8ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (27.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/75
+Completed 302 Found in 36ms (ActiveRecord: 28.0ms)
+Started GET "/galleries/75" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"75"}
+  [1m[36mGallery Load (0.7ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 4.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.7ms)
+  Rendered galleries/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.2ms)
+  Rendered galleries/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.3ms)
+Started GET "/galleries/78" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"78"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 78], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/82" for 127.0.0.1 at 2017-01-12 17:53:40 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"82"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 82], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:57:59 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (61.6ms)
+  Rendered galleries/new.html.erb within layouts/application (64.7ms)
+Completed 200 OK in 289ms (Views: 238.9ms | ActiveRecord: 21.6ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:58:00 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (11.1ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/83
+Completed 302 Found in 19ms (ActiveRecord: 11.7ms)
+Started GET "/galleries/83" for 127.0.0.1 at 2017-01-12 17:58:00 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"83"}
+  [1m[36mGallery Load (3.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 83], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 14ms (Views: 3.9ms | ActiveRecord: 3.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 17:58:00 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.1ms)
+  Rendered galleries/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 17:58:00 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (8.5ms)
+  Rendered galleries/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 18ms (Views: 14.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 17:58:00 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 17:58:00 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/86" for 127.0.0.1 at 2017-01-12 17:58:00 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"86"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 86], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/90" for 127.0.0.1 at 2017-01-12 17:58:00 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"90"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 90], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:00:49 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (36.4ms)
+  Rendered galleries/new.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 240ms (Views: 207.0ms | ActiveRecord: 14.5ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (22.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/91
+Completed 302 Found in 35ms (ActiveRecord: 22.8ms)
+Started GET "/galleries/91" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"91"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 10ms (Views: 4.0ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.3ms)
+  Rendered galleries/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.0ms)
+  Rendered galleries/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 17ms (Views: 13.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.1ms)
+  Rendered galleries/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/94" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"94"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/98" for 127.0.0.1 at 2017-01-12 18:00:50 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"98"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 98], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  Rendered galleries/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (10.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5544808831685216310);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddYearToPaintings (20170112231146)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "paintings" ADD "year" character varying NOT NULL[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170112231146"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (8.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5544808831685216310)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'galleries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'paintings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (62.3ms)
+  Rendered galleries/new.html.erb within layouts/application (65.4ms)
+Completed 200 OK in 269ms (Views: 228.9ms | ActiveRecord: 20.1ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (10.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/99
+Completed 302 Found in 18ms (ActiveRecord: 10.8ms)
+Started GET "/galleries/99" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"99"}
+  [1m[36mGallery Load (3.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 99], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (7.7ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 99]]
+  Rendered galleries/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 73ms (Views: 6.5ms | ActiveRecord: 13.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.1ms)
+  Rendered galleries/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (8.3ms)
+  Rendered galleries/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 18ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.9ms)
+  Rendered galleries/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/102" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 102]]
+  Rendered galleries/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 30ms (Views: 4.7ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 103], ["created_at", 2017-01-12 23:23:45 UTC], ["updated_at", 2017-01-12 23:23:45 UTC], ["year", "1893"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/103" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"103"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 103]]
+  Rendered galleries/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Vanish"], ["artist", "Pierre Alechnisky"], ["gallery_id", 104], ["created_at", 2017-01-12 23:23:45 UTC], ["updated_at", 2017-01-12 23:23:45 UTC], ["year", "1959"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 105], ["created_at", 2017-01-12 23:23:45 UTC], ["updated_at", 2017-01-12 23:23:45 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/105" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"105"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 105]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.7ms)
+Started GET "/galleries/104" for 127.0.0.1 at 2017-01-12 18:23:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"104"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 104]]
+  Rendered galleries/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/107" for 127.0.0.1 at 2017-01-12 18:23:46 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"107"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 107], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 107]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:26:17 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (33.3ms)
+  Rendered galleries/new.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 217ms (Views: 191.0ms | ActiveRecord: 6.6ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:26:17 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (18.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/108
+Completed 302 Found in 26ms (ActiveRecord: 19.2ms)
+Started GET "/galleries/108" for 127.0.0.1 at 2017-01-12 18:26:17 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"108"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 108], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.8ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 108]]
+  Rendered galleries/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 28ms (Views: 6.0ms | ActiveRecord: 3.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.4ms)
+  Rendered galleries/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (3.7ms)
+  Rendered galleries/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 14ms (Views: 9.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.5ms)
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.6ms)
+  Rendered galleries/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/111" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"111"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 111], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 111]]
+  Rendered galleries/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 32ms (Views: 5.5ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 112], ["created_at", 2017-01-12 23:26:18 UTC], ["updated_at", 2017-01-12 23:26:18 UTC], ["year", "1893"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/112" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"112"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 112], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 112]]
+  Rendered galleries/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Vanish"], ["artist", "Pierre Alechnisky"], ["gallery_id", 113], ["created_at", 2017-01-12 23:26:18 UTC], ["updated_at", 2017-01-12 23:26:18 UTC], ["year", "1959"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 114], ["created_at", 2017-01-12 23:26:18 UTC], ["updated_at", 2017-01-12 23:26:18 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/114" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"114"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 114], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 114]]
+  Rendered galleries/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.8ms)
+Started GET "/galleries/113" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"113"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 113], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.5ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 113]]
+  Rendered galleries/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/116" for 127.0.0.1 at 2017-01-12 18:26:18 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"116"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 116], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 116]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 5.4ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:29:20 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (18.2ms)
+  Rendered galleries/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 211ms (Views: 170.0ms | ActiveRecord: 21.7ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/117
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+Started GET "/galleries/117" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"117"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 117], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (5.9ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 117]]
+  Rendered galleries/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 41ms (Views: 8.7ms | ActiveRecord: 8.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.4ms)
+  Rendered galleries/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (5.0ms)
+  Rendered galleries/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.3ms)
+  Rendered galleries/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/120" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"120"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 120], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 120]]
+  Rendered galleries/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 33ms (Views: 5.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 121], ["created_at", 2017-01-12 23:29:21 UTC], ["updated_at", 2017-01-12 23:29:21 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/121" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"121"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 121], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.5ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 121]]
+  Rendered galleries/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Vanish"], ["artist", "Pierre Alechnisky"], ["gallery_id", 122], ["created_at", 2017-01-12 23:29:21 UTC], ["updated_at", 2017-01-12 23:29:21 UTC], ["year", "1959"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 123], ["created_at", 2017-01-12 23:29:21 UTC], ["updated_at", 2017-01-12 23:29:21 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/123" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"123"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 123], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 123]]
+  Rendered galleries/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.8ms)
+Started GET "/galleries/122" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"122"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 122], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 122]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/125" for 127.0.0.1 at 2017-01-12 18:29:21 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"125"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 125], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 125]]
+  Rendered galleries/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (63.1ms)
+  Rendered galleries/new.html.erb within layouts/application (68.9ms)
+Completed 200 OK in 260ms (Views: 227.1ms | ActiveRecord: 7.9ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.9ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/126
+Completed 302 Found in 18ms (ActiveRecord: 10.3ms)
+Started GET "/galleries/126" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"126"}
+  [1m[36mGallery Load (3.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (12.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 126]]
+  Rendered galleries/show.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 83ms (Views: 5.9ms | ActiveRecord: 17.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.2ms)
+  Rendered galleries/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.7ms)
+  Rendered galleries/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.0ms)
+  Rendered galleries/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/129" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"129"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 129], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 129]]
+  Rendered galleries/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 130], ["created_at", 2017-01-12 23:53:55 UTC], ["updated_at", 2017-01-12 23:53:55 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/130" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"130"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 130], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 130]]
+  Rendered galleries/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Vanish"], ["artist", "Pierre Alechnisky"], ["gallery_id", 131], ["created_at", 2017-01-12 23:53:55 UTC], ["updated_at", 2017-01-12 23:53:55 UTC], ["year", "1959"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 132], ["created_at", 2017-01-12 23:53:55 UTC], ["updated_at", 2017-01-12 23:53:55 UTC], ["year", "1893"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/132" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"132"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 132], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 132]]
+  Rendered galleries/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.8ms)
+Started GET "/galleries/131" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"131"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 131], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 131]]
+  Rendered galleries/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/133/paintings/new" for 127.0.0.1 at 2017-01-12 18:53:55 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"133"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 133], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (5.2ms)
+  Rendered paintings/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/134" for 127.0.0.1 at 2017-01-12 18:53:56 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"134"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 134], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 134]]
+  Rendered galleries/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (17.7ms)
+  Rendered galleries/new.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 218ms (Views: 178.3ms | ActiveRecord: 17.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (29.7ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/135
+Completed 302 Found in 43ms (ActiveRecord: 30.1ms)
+Started GET "/galleries/135" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"135"}
+  [1m[36mGallery Load (2.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (16.0ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 135]]
+  Rendered galleries/show.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 77ms (Views: 5.8ms | ActiveRecord: 20.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.2ms)
+  Rendered galleries/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (3.5ms)
+  Rendered galleries/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.3ms)
+  Rendered galleries/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/138" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"138"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 138], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 138]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 139], ["created_at", 2017-01-12 23:54:23 UTC], ["updated_at", 2017-01-12 23:54:23 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/139" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"139"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 139], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 139]]
+  Rendered galleries/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Vanish"], ["artist", "Pierre Alechnisky"], ["gallery_id", 140], ["created_at", 2017-01-12 23:54:23 UTC], ["updated_at", 2017-01-12 23:54:23 UTC], ["year", "1959"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 141], ["created_at", 2017-01-12 23:54:23 UTC], ["updated_at", 2017-01-12 23:54:23 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/141" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"141"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 141], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 141]]
+  Rendered galleries/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.9ms)
+Started GET "/galleries/140" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"140"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 140], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 140]]
+  Rendered galleries/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/142/paintings/new" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"142"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 142], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (10.1ms)
+  Rendered paintings/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/143" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"143"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 143], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 143]]
+  Rendered galleries/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.6ms)
+Started GET "/galleries/143/paintings/new" for 127.0.0.1 at 2017-01-12 18:54:23 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"143"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 143], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (2.4ms)
+  Rendered paintings/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:55:10 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (19.1ms)
+  Rendered galleries/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 193ms (Views: 166.5ms | ActiveRecord: 6.1ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/144
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+Started GET "/galleries/144" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"144"}
+  [1m[36mGallery Load (0.5ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 144], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.9ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 144]]
+  Rendered galleries/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 28ms (Views: 6.1ms | ActiveRecord: 3.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (3.0ms)
+  Rendered galleries/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.0ms)
+  Rendered galleries/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.0ms)
+  Rendered galleries/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/147" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"147"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 147], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 147]]
+  Rendered galleries/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 148], ["created_at", 2017-01-12 23:55:11 UTC], ["updated_at", 2017-01-12 23:55:11 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/148" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"148"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 148], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 148]]
+  Rendered galleries/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Vanish"], ["artist", "Pierre Alechnisky"], ["gallery_id", 149], ["created_at", 2017-01-12 23:55:11 UTC], ["updated_at", 2017-01-12 23:55:11 UTC], ["year", "1959"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 150], ["created_at", 2017-01-12 23:55:11 UTC], ["updated_at", 2017-01-12 23:55:11 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/150" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"150"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 150], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.6ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 150]]
+  Rendered galleries/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.9ms)
+Started GET "/galleries/149" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"149"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 149], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 149]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/151/paintings/new" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"151"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 151], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (3.7ms)
+  Rendered paintings/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.4ms)
+Started POST "/galleries/151/paintings" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "painting"=>{"title"=>"Snow at Argenteuil", "artist"=>"Claude Monet", "year"=>"1874"}, "commit"=>"Add Painting", "gallery_id"=>"151"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 151], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Snow at Argenteuil"], ["artist", "Claude Monet"], ["gallery_id", 151], ["created_at", 2017-01-12 23:55:11 UTC], ["updated_at", 2017-01-12 23:55:11 UTC], ["year", "1874"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/151
+Completed 302 Found in 4ms (ActiveRecord: 1.1ms)
+Started GET "/galleries/151" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"151"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 151], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 151]]
+  Rendered galleries/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/152" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"152"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 152], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 152]]
+  Rendered galleries/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+Started GET "/galleries/152/paintings/new" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"152"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 152], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (3.0ms)
+  Rendered paintings/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+Started POST "/galleries/152/paintings" for 127.0.0.1 at 2017-01-12 18:55:11 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "painting"=>{"title"=>"Dopest Painting", "artist"=>"", "year"=>""}, "commit"=>"Add Painting", "gallery_id"=>"152"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 152], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (5.3ms)
+  Rendered paintings/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 21ms (Views: 15.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (28.9ms)
+  Rendered galleries/new.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 207ms (Views: 177.8ms | ActiveRecord: 11.8ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"The Whitney", "city"=>"New York", "state"=>"NY", "zip"=>"10128", "description"=>"A must see if you're in New York City"}, "commit"=>"Add Gallery"}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Whitney"], ["description", "A must see if you're in New York City"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/153
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms)
+Started GET "/galleries/153" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"153"}
+  [1m[36mGallery Load (0.6ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 153], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.8ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 153]]
+  Rendered galleries/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 27ms (Views: 5.3ms | ActiveRecord: 3.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.1ms)
+  Rendered galleries/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+Started POST "/galleries" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "gallery"=>{"name"=>"", "city"=>"", "state"=>"", "zip"=>"", "description"=>""}, "commit"=>"Add Gallery"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (4.3ms)
+  Rendered galleries/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/new" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#new as HTML
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (2.1ms)
+  Rendered galleries/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "description", "city", "state", "zip") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "MFA"], ["description", "Best gallery in Boston!"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#index as HTML
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  Rendered galleries/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.4ms)
+Started GET "/galleries/156" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"156"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 156], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 156]]
+  Rendered galleries/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 157], ["created_at", 2017-01-12 23:55:45 UTC], ["updated_at", 2017-01-12 23:55:45 UTC], ["year", "1893"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/157" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"157"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 157], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 157]]
+  Rendered galleries/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Guggenheim"], ["city", "New York"], ["state", "NY"], ["zip", "10128"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Vanish"], ["artist", "Pierre Alechnisky"], ["gallery_id", 158], ["created_at", 2017-01-12 23:55:45 UTC], ["updated_at", 2017-01-12 23:55:45 UTC], ["year", "1959"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French Farmhouse"], ["artist", "Philip Leslie Hale"], ["gallery_id", 159], ["created_at", 2017-01-12 23:55:45 UTC], ["updated_at", 2017-01-12 23:55:45 UTC], ["year", "1893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/159" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"159"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 159], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 159]]
+  Rendered galleries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.8ms)
+Started GET "/galleries/158" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"158"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 158], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.4ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 158]]
+  Rendered galleries/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/160/paintings/new" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"160"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 160], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (3.7ms)
+  Rendered paintings/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.4ms)
+Started POST "/galleries/160/paintings" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "painting"=>{"title"=>"Snow at Argenteuil", "artist"=>"Claude Monet", "year"=>"1874"}, "commit"=>"Add Painting", "gallery_id"=>"160"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 160], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "paintings" ("title", "artist", "gallery_id", "created_at", "updated_at", "year") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Snow at Argenteuil"], ["artist", "Claude Monet"], ["gallery_id", 160], ["created_at", 2017-01-12 23:55:45 UTC], ["updated_at", 2017-01-12 23:55:45 UTC], ["year", "1874"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/galleries/160
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started GET "/galleries/160" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"160"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 160], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 160]]
+  Rendered galleries/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "galleries" ("name", "city", "state", "zip") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MFA"], ["city", "Boston"], ["state", "MA"], ["zip", "02155"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/galleries/161" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"161"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 161], ["LIMIT", 1]]
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mPainting Load (0.3ms)[0m  [1m[34mSELECT "paintings".* FROM "paintings" WHERE "paintings"."gallery_id" = $1[0m  [["gallery_id", 161]]
+  Rendered galleries/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+Started GET "/galleries/161/paintings/new" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by PaintingsController#new as HTML
+  Parameters: {"gallery_id"=>"161"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 161], ["LIMIT", 1]]
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (2.2ms)
+  Rendered paintings/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+Started POST "/galleries/161/paintings" for 127.0.0.1 at 2017-01-12 18:55:45 -0500
+Processing by PaintingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "painting"=>{"title"=>"Dopest Painting", "artist"=>"", "year"=>""}, "commit"=>"Add Painting", "gallery_id"=>"161"}
+  [1m[36mGallery Load (0.3ms)[0m  [1m[34mSELECT  "galleries".* FROM "galleries" WHERE "galleries"."id" = $1 LIMIT $2[0m  [["id", 161], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering paintings/new.html.erb within layouts/application
+  Rendered paintings/_form.html.erb (5.0ms)
+  Rendered paintings/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m

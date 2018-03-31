@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+  <h2><%= flash.notice %></h2>
+<% end %>
+
+<h1><%= @restaurant.name %></h1>
+
+<h3><u>Located At</u></h3>
+<p><%= "#{@restaurant.address}, #{@restaurant.city}, #{@restaurant.state}, #{@restaurant.zip}" %></p>
+
+<h3><u>Categories</u></h3>
+<ul>
+  <% @categories.each do |category| %>
+    <li><%= link_to category.name, category_path(category) %></li>
+  <% end %>
+</ul>
+
+<h3><u>Description</u></h3>
+<p><%= @restaurant.description %></p>
+
+<h3><u>Reviews</u></h3>
+<ul>
+  <% @reviews.each do |review| %>
+    <li><%= "#{review.rating}, #{review.body}, #{review.created_at.strftime("%B %d %Y")}" %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a Review', new_restaurant_review_path(@restaurant)%><br>
+
+<%= link_to 'All Restaurants', restaurants_path %>

@@ -1,0 +1,26 @@
+<h1><%=@project.name%></h1>
+
+<p>Desc: <%=@project.description%></p>
+
+<p><b>Users working on project:</b></p>
+<ul>
+  <%@project.users.each do |user| %>
+    <li><%=user.first_name%> <%=user.last_name%><%=", " + user.email if user.email%></li>
+  <%end%>
+</ul>
+
+<p><b>Tasks:</b></p>
+<ul>
+  <%@project.tasks.each do |task| %>
+    <li>
+      <div>
+      <p><%=task.name%></p>
+      <p><%=task.description%></p>
+      <p>Assigned to: <%=task.user.first_name + " " + task.user.last_name if task.user%></p>
+      </div>
+    </li>
+  <%end%>
+</ul>
+
+<br>
+<a href='/projects'><button>Back</button></a>

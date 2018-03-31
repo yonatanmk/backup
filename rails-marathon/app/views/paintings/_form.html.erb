@@ -1,0 +1,25 @@
+<% if flash[:notice] %>
+  <h2><%= flash.notice %></h2>
+<% end %>
+
+<% if painting.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(painting.errors.count, "error") %> prohibited this painting from being saved:</h3>
+
+    <ul>
+    <% painting.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [gallery, painting] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  <%= f.label :artist %>
+  <%= f.text_field :artist %><br>
+  <%= f.label :year %>
+  <%= f.text_field :year %><br>
+  <%= f.submit "Add Painting" %>
+<% end %>

@@ -1,0 +1,27 @@
+<h1><%=@meetup.name%></h1>
+<h2>Created By</h2>
+<img class='avatar' src="<%=@creator.avatar_url%>"/>
+<h2 class='creator-name'><%=@creator.username%></h2>
+
+<p>Desc: <%=@meetup.description%></p>
+<p>Location: <%=@meetup.location%></p>
+
+<p>Attendees</p>
+<ul>
+  <%@attendees.each do |attendee| %>
+    <li><%=attendee.username%></a></li>
+  <%end%>
+</ul>
+<%if @user_in_attendance%>
+  <form action='/meetups/<%=@id%>' method="post">
+    <input type="hidden" name="action" value="leave" />
+    <input type="submit" value="Leave Meetup">
+  </form>
+<%else%>
+  <form action='/meetups/<%=@id%>' method="post">
+    <input type="hidden" name="action" value="join" />
+    <input type="submit" value="Join Meetup">
+  </form>
+<%end%>
+<br>
+<a href='/meetups'><button>Back</button></a>

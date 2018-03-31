@@ -1,0 +1,11 @@
+<h1>Contacts</h1>
+<%if @contacts.length == 0%>
+  <p>No Results</p>
+<%else%>
+<ul>
+  <% @contacts.each do |contact| %>
+    <li><a href="/contacts/<%= contact.id %>"><%= contact.name %> - <%= contact.phone_number %></a></li>
+  <% end %>
+</ul>
+<%end%>
+<p><a href='/search'>Back</a></p>

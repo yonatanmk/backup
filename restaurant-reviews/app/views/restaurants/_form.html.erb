@@ -1,0 +1,33 @@
+<% if flash[:notice] %>
+  <h2><%= flash.notice %></h2>
+<% end %>
+
+<% if restaurant.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h3>
+
+    <ul>
+    <% restaurant.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for restaurant do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :address %>
+  <%= f.text_field :address %><br>
+  <%= f.label :city %>
+  <%= f.text_field :city %><br>
+  <%= f.label :state %>
+  <%= f.text_field :state %><br>
+  <%= f.label :zip %>
+  <%= f.text_field :zip %><br>
+  <%= f.label :categories %>
+  <%= f.collection_check_boxes(:categories, @categories, :id, :name)  %><br>
+  <%= f.label :description %><br>
+  <%= f.text_area :description, size: "60x12" %><br>
+  <%= f.submit "Add Restaurant" %>
+<% end %>

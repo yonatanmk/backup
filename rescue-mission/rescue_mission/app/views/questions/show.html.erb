@@ -1,0 +1,19 @@
+<h2><%= @question.title %></h2>
+
+<p><b>Description:</b><%= @question.description %></p>
+
+<%= link_to 'Edit', edit_question_path(@question) %><br>
+<%= link_to "Delete Question", @question, method: :delete, data: {confirm: "Are you sure?"} %>
+
+<p><b>Answers:</b></p>
+<ul>
+  <% @answers.each do |answer| %>
+    <li><%= answer.body %></li>
+  <%end%>
+</ul>
+
+<p><b>New Answer:</b></p>
+
+<%= render 'answers/form', {answer: @answer, question: @question}%>
+
+<%= link_to 'Back', questions_path %>

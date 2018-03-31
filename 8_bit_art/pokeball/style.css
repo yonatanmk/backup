@@ -1,0 +1,38 @@
+body {
+  font-size: 0px;
+}
+
+div {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.new-line {
+  height: 0px;
+  display: block;
+}
+
+.red {
+  background-color: #FC0400;
+}
+
+.pink {
+  background-color: #FE7376;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.black {
+  background-color: black;
+}
+
+.gray {
+  background-color: #DDD;
+}

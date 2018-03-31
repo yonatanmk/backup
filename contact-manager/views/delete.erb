@@ -1,0 +1,24 @@
+<h1>Delete Contact</h1>
+<p style="color:red">
+  <% if @error_msg.length > 0 %>
+    <%= @error_msg %>
+  <% end %>
+</p>
+<p>
+  <% if @success_msg.length > 0 %>
+    <%= @success_msg %>
+  <% end %>
+</p>
+<form action='/delete' method="post">
+  <label for="first_name">First Name:</label>
+  <input type="text" id="first_name" name="first_name" >
+  <br>
+  <label for="last_name">Last Name:</label>
+  <input type="text" id="last_name" name="last_name" >
+  <br>
+  <input type="submit">
+</form>
+<p><a href='/'>Index</a></p>
+<p><a href='/contacts'>Pages</a></p>
+<p><a href='/add'>Add</a></p>
+<p><a href='/search'>Search</a></p>

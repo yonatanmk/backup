@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "id": 1,
+      "name": "my first folder"
+    },
+    {
+      "id": 2,
+      "name": "cheese"
+    },
+    {
+      "id": 3,
+      "name": "christmas shopping list"
+    },
+    {
+      "id": 4,
+      "name": "people to nominate in launchvotes"
+    }
+  ]
+}

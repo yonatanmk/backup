@@ -1,0 +1,57 @@
+/* I didn't know what fonts to use */
+
+body {
+  font-family: sans-serif;
+  background-color: #F6F6EF;
+  margin: 0
+}
+
+body * {
+  margin: 0;
+}
+
+header {
+  background-color: #FF6600;
+  padding: 5px;
+}
+
+header h1 {
+  font-family: 'Lemon';
+  font-size: 20px;
+  color: #F6F6EF;
+  display: inline-block;
+  margin-right :287px;
+}
+
+header h2 {
+  font-size: 18px;
+  display: inline-block;
+}
+
+.intro h1 {
+  margin: 20px 0px 20px 0px;
+}
+
+.intro img {
+  width: 370px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.ingredient-list h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.ingredient-list ul {
+  margin-bottom: 20px;
+}
+
+.directions h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.directions ol {
+  margin-bottom: 20px;
+}
